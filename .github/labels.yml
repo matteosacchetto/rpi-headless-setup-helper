@@ -61,9 +61,9 @@
 - color: b1ede8
   description: 'Patch change'
   name: 'semver: patch'
-- color": "ededed"
+- color: "ededed"
   description: "Pending release by release-please"
   name: "autorelease: pending"
-- color": "ededed"
+- color: "ededed"
   description: "Created release by release-please"
   name: "autorelease: tagged"
