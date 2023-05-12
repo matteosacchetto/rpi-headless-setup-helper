@@ -1,7 +1,7 @@
 {
   "name": "@matteosacchetto/rpi-headless-setup-helper",
   "version": "0.0.0-dev",
-  "description": "Raspberry Pi headless setup helper",
+  "description": "Raspberry Pi headless setup helper CLI",
   "main": "dist/index.mjs",
   "bin": {
     "rpi-headless-setup-helper": "dist/index.mjs"
