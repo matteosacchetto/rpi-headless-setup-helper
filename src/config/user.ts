@@ -18,7 +18,7 @@ export const user_config = async ({
   overwrite?: boolean;
 }) => {
   const file = 'userconf.txt';
-  if(!overwrite) {
+  if (!overwrite) {
     await throw_if_file_exists(file);
   }
 

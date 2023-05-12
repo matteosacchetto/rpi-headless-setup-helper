@@ -36,7 +36,7 @@ t.test('deep redact object (recursion)', async (t) => {
       sub_obj: {
         name: 'test_name',
         password: '***',
-      }
+      },
     }
   );
 });

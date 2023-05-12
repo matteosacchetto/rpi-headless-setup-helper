@@ -1,4 +1,8 @@
-export const deep_redact = (obj: Record<string, unknown>, paths: string[], mask = '***') => {
+export const deep_redact = (
+  obj: Record<string, unknown>,
+  paths: string[],
+  mask = '***'
+) => {
   const paths_set = new Set(paths);
   const redacted_obj: Record<string, unknown> = {};
 
@@ -7,7 +11,11 @@ export const deep_redact = (obj: Record<string, unknown>, paths: string[], mask 
       redacted_obj[k] = mask;
     } else {
       if (typeof obj[k] === 'object' && !Array.isArray(obj[k])) {
-        redacted_obj[k] = deep_redact(obj[k] as Record<string, unknown>, paths, mask);
+        redacted_obj[k] = deep_redact(
+          obj[k] as Record<string, unknown>,
+          paths,
+          mask
+        );
       } else {
         redacted_obj[k] = obj[k];
       }
