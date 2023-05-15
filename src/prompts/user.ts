@@ -1,4 +1,5 @@
 import { logger } from '@/logger';
+import { error_to_msg } from '@/utils/validation';
 import { validate_username } from '@/validation/user';
 import confirm from '@inquirer/confirm';
 import input from '@inquirer/input';
@@ -15,7 +16,8 @@ export const user_prompt = async (mask?: string | undefined) => {
   }
   const username = await input({
     message: 'Username',
-    validate: (proposed_username) => validate_username(proposed_username),
+    validate: (proposed_username) =>
+      error_to_msg(() => validate_username(proposed_username)),
   });
 
   let pwd, confirm_pwd;

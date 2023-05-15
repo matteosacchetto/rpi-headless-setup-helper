@@ -9,6 +9,7 @@ import {
   validate_psk,
   validate_ssid,
 } from '@/validation/wifi';
+import { error_to_msg } from '@/utils/validation';
 
 export const wifi_prompt = async (mask?: string | undefined) => {
   const enable = await confirm({
@@ -29,12 +30,14 @@ export const wifi_prompt = async (mask?: string | undefined) => {
     default: is_country_code_valid(default_country_code)
       ? default_country_code
       : '',
-    validate: (proposed_code: string) => validate_country_code(proposed_code),
+    validate: (proposed_code: string) =>
+      error_to_msg(() => validate_country_code(proposed_code)),
   });
 
   const ssid = await input({
     message: 'SSID',
-    validate: (proposed_ssid: string) => validate_ssid(proposed_ssid),
+    validate: (proposed_ssid: string) =>
+      error_to_msg(() => validate_ssid(proposed_ssid)),
   });
 
   let psk, confirm_psk;
@@ -43,13 +46,15 @@ export const wifi_prompt = async (mask?: string | undefined) => {
     psk = await password({
       message: 'Password',
       mask,
-      validate: (proposed_psk: string) => validate_psk(proposed_psk),
+      validate: (proposed_psk: string) =>
+        error_to_msg(() => validate_psk(proposed_psk)),
     });
 
     confirm_psk = await password({
       message: 'Confirm password',
       mask,
-      validate: (proposed_psk: string) => validate_psk(proposed_psk),
+      validate: (proposed_psk: string) =>
+        error_to_msg(() => validate_psk(proposed_psk)),
     });
 
     if (psk !== confirm_psk) {
