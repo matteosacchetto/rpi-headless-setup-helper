@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.1.0...v0.1.1) (2023-05-15)
+
+
+### Bug Fixes
+
+* add dependency on ci job ([8007392](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/80073924d3af73b1219be7b6000182ffe2fea732))
+
 ## 0.1.0 (2023-05-12)
 
 
