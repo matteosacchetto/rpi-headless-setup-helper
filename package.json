@@ -25,6 +25,7 @@
     "prepack": "npm run build"
   },
   "devDependencies": {
+    "@commander-js/extra-typings": "^10.0.3",
     "@esbuild-kit/esm-loader": "^2.5.5",
     "@rollup/plugin-eslint": "^9.0.3",
     "@rollup/plugin-json": "^6.0.0",
@@ -56,6 +57,7 @@
     "@inquirer/input": "^1.0.3",
     "@inquirer/password": "^1.0.3",
     "chalk": "^5.2.0",
+    "commander": "^10.0.1",
     "log-symbols": "^5.1.0",
     "ora": "^6.3.0",
     "strip-ansi": "^7.0.1",
