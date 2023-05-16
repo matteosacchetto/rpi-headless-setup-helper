@@ -10,6 +10,7 @@ import {
   validate_ssid,
 } from '@/validation/wifi';
 import { error_to_msg } from '@/utils/validation';
+import { WiFi } from './types';
 
 export const wifi_prompt = async (mask?: string | undefined) => {
   const enable = await confirm({
@@ -62,7 +63,7 @@ export const wifi_prompt = async (mask?: string | undefined) => {
     }
   } while (psk !== confirm_psk);
 
-  return {
+  return <WiFi>{
     enable,
     country_code,
     ssid,

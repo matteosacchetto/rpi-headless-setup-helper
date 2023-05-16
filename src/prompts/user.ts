@@ -4,6 +4,7 @@ import { validate_username } from '@/validation/user';
 import confirm from '@inquirer/confirm';
 import input from '@inquirer/input';
 import password from '@inquirer/password';
+import { User } from './types';
 
 export const user_prompt = async (mask?: string | undefined) => {
   const enable = await confirm({
@@ -38,7 +39,7 @@ export const user_prompt = async (mask?: string | undefined) => {
     }
   } while (pwd !== confirm_pwd);
 
-  return {
+  return <User>{
     enable,
     username,
     password: pwd,
