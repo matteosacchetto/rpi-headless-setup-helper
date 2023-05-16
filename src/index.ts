@@ -15,7 +15,15 @@ import { deep_redact } from './utils/redact';
 import { createCommand } from './utils/commands';
 import { name, description } from './config';
 
+import ssh_command from './commands/ssh';
+import user_command from './commands/user';
+import wifi_command from './commands/wifi';
+
 const program = createCommand(name, description);
+
+program.addCommand(ssh_command);
+program.addCommand(user_command);
+program.addCommand(wifi_command);
 
 program.action(async () => {
   await exit_fail_on_error(async () => {
@@ -62,6 +70,7 @@ program.action(async () => {
         name: `SSH`,
         fn: async (overwrite: boolean) => await ssh_config({ overwrite }),
         overwrite: false,
+        retry: true,
       });
     });
   }
@@ -77,6 +86,7 @@ program.action(async () => {
             overwrite,
           }),
         overwrite: false,
+        retry: true,
       });
     });
   }
@@ -93,6 +103,7 @@ program.action(async () => {
             overwrite,
           }),
         overwrite: false,
+        retry: true,
       });
     });
   }
