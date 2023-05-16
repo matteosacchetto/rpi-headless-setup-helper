@@ -8,10 +8,10 @@ export const confirm_creation_prompt = async (
   logger.info(chalk.bold('Configuration'));
   logger.log(redacted_configuration);
 
-  const confirm_creation = (await confirm({
+  const confirm_creation = await confirm({
     message: 'Proceed with the creation of configuration files',
     default: true,
-  })) as boolean;
+  });
 
   return confirm_creation;
 };
