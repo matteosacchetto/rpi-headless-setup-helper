@@ -7,6 +7,11 @@ import externals from 'rollup-plugin-node-externals';
 import esbuild from 'rollup-plugin-esbuild';
 import { typescriptPaths } from 'rollup-plugin-typescript-paths';
 import { defineConfig } from 'rollup';
+import replace from '@rollup/plugin-replace';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
+const pkg = require('./package.json');
 
 const preferConst = true; // Use "const" instead of "var"
 const usePreserveModules = true; // `true` -> keep modules structure, `false` -> combine everything into a single file
@@ -39,6 +44,12 @@ export default defineConfig({
     }),
     json({
       preferConst: preferConst,
+    }),
+    replace({
+      'process.env.PKG_NAME': `"${Object.keys(pkg.bin)[0]}"`,
+      'process.env.PKG_VERSION': `"${pkg.version}"`,
+      'process.env.PKG_DESCRIPTION': `"${pkg.description}"`,
+      preventAssignment: true,
     }),
     useEsbuild
       ? [
