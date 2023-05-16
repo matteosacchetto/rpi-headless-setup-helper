@@ -2,6 +2,7 @@ import { FileExistsError } from '@/errors/file-exists-error';
 import { logger } from '@/logger';
 import { confirm_overwrite_prompt } from '@/prompts/confirm-overwrite';
 import { config_spinner } from './config-spinner';
+import { log_indent } from '@/utils/log';
 
 export const config_overwrite = async ({
   name,
@@ -22,10 +23,11 @@ export const config_overwrite = async ({
   } catch (e) {
     if (e instanceof FileExistsError) {
       if (retry) {
-        const indentation = logger.indentation;
-        logger.indent(indentation + 2);
-        logger.dimmed_error(e.message);
-        logger.indent(indentation);
+        log_indent({
+          fn: () => {
+            logger.dimmed_error((e as FileExistsError).message);
+          },
+        });
 
         const overwrite = await confirm_overwrite_prompt();
         if (overwrite) {
