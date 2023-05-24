@@ -18,7 +18,6 @@ on:
       - '.npmignore'
       - 'LICENSE'
       - 'README.md'
-      - 'bash-completion.sh'
   push:
     paths-ignore:
       - '.devcontainer/**'
@@ -28,7 +27,6 @@ on:
       - '.npmignore'
       - 'LICENSE'
       - 'README.md'
-      - 'bash-completion.sh'
 
 permissions:
   contents: read # to fetch code (actions/checkout)
