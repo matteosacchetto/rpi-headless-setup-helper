@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.2.0...v0.2.1) (2023-05-24)
+
+
+### Bug Fixes
+
+* bash-completion now also completes the `help` command ([#6](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/6)) ([3707b76](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/3707b7637202a92ae30d4c0b5839d7cdaf026140))
+
 ## [0.2.0](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.1.0...v0.2.0) (2023-05-24)
 
 
