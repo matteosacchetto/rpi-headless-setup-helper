@@ -1,4 +1,5 @@
 import confirm from '@inquirer/confirm';
+import { SSH } from './types';
 
 export const ssh_prompt = async () => {
   const enable = await confirm({
@@ -6,7 +7,7 @@ export const ssh_prompt = async () => {
     default: true,
   });
 
-  return {
+  return <SSH>{
     enable,
   };
 };

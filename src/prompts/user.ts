@@ -1,8 +1,10 @@
-import { user_regex } from '@/const/regex';
 import { logger } from '@/logger';
+import { error_to_msg } from '@/utils/validation';
+import { validate_username } from '@/validation/user';
 import confirm from '@inquirer/confirm';
 import input from '@inquirer/input';
 import password from '@inquirer/password';
+import { User } from './types';
 
 export const user_prompt = async (mask?: string | undefined) => {
   const enable = await confirm({
@@ -15,13 +17,8 @@ export const user_prompt = async (mask?: string | undefined) => {
   }
   const username = await input({
     message: 'Username',
-    validate(proposed_username: string) {
-      if (proposed_username.match(user_regex)) {
-        return true;
-      }
-
-      return `username MUST match the following regular expression: ${user_regex}`;
-    },
+    validate: (proposed_username) =>
+      error_to_msg(() => validate_username(proposed_username)),
   });
 
   let pwd, confirm_pwd;
@@ -42,7 +39,7 @@ export const user_prompt = async (mask?: string | undefined) => {
     }
   } while (pwd !== confirm_pwd);
 
-  return {
+  return <User>{
     enable,
     username,
     password: pwd,

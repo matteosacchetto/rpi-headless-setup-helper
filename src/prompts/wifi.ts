@@ -4,8 +4,13 @@ import password from '@inquirer/password';
 import { logger } from '@/logger';
 import { get_country_from_locale, get_locale_country } from '@/utils/locale';
 import { is_country_code_valid } from '@/utils/country-codes';
-import chalk from 'chalk';
-import { ssid_regex } from '@/const/regex';
+import {
+  validate_country_code,
+  validate_psk,
+  validate_ssid,
+} from '@/validation/wifi';
+import { error_to_msg } from '@/utils/validation';
+import { WiFi } from './types';
 
 export const wifi_prompt = async (mask?: string | undefined) => {
   const enable = await confirm({
@@ -26,26 +31,14 @@ export const wifi_prompt = async (mask?: string | undefined) => {
     default: is_country_code_valid(default_country_code)
       ? default_country_code
       : '',
-    validate(proposed_code: string) {
-      if (!is_country_code_valid(proposed_code)) {
-        return `Insert a valid 2 letter ISO 3166-1 country code ${chalk.gray.dim(
-          `(https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)`
-        )}`;
-      }
-
-      return true;
-    },
+    validate: (proposed_code: string) =>
+      error_to_msg(() => validate_country_code(proposed_code)),
   });
 
   const ssid = await input({
     message: 'SSID',
-    validate(proposed_ssid: string) {
-      if (proposed_ssid.match(ssid_regex)) {
-        return true;
-      }
-
-      return `username MUST match the following regular expression: ${ssid_regex}`;
-    },
+    validate: (proposed_ssid: string) =>
+      error_to_msg(() => validate_ssid(proposed_ssid)),
   });
 
   let psk, confirm_psk;
@@ -54,25 +47,15 @@ export const wifi_prompt = async (mask?: string | undefined) => {
     psk = await password({
       message: 'Password',
       mask,
-      validate(proposed_psk: string) {
-        if (proposed_psk.length >= 8 && proposed_psk.length < 63) {
-          return true;
-        }
-
-        return 'Password must be 8..63 characters long';
-      },
+      validate: (proposed_psk: string) =>
+        error_to_msg(() => validate_psk(proposed_psk)),
     });
 
     confirm_psk = await password({
       message: 'Confirm password',
       mask,
-      validate(proposed_psk: string) {
-        if (proposed_psk.length >= 8 && proposed_psk.length < 63) {
-          return true;
-        }
-
-        return 'Password must be 8..63 characters long';
-      },
+      validate: (proposed_psk: string) =>
+        error_to_msg(() => validate_psk(proposed_psk)),
     });
 
     if (psk !== confirm_psk) {
@@ -80,7 +63,7 @@ export const wifi_prompt = async (mask?: string | undefined) => {
     }
   } while (psk !== confirm_psk);
 
-  return {
+  return <WiFi>{
     enable,
     country_code,
     ssid,

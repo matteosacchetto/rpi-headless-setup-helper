@@ -2,4 +2,8 @@
 /*
 
 # Keep these files/directories
-!/dist
+!package.json
+!dist/**/*
+!LICENSE
+!README.md
+!bash-completion.sh
