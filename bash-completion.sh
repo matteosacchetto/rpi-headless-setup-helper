@@ -14,7 +14,6 @@ _get_last_opt() {
 }
 
 __rpi-headless-setup-helper_completion() {
-
   local prev=$(_get_pword)  
   local cur=$(_get_cword)
   local subcommand=${COMP_WORDS[1]}
