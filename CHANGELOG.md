@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.2.0](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.1.0...v0.2.0) (2023-05-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* non-interactive CLI ([#4](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/4))
+
+### Features
+
+* non-interactive CLI ([#4](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/4)) ([7abe282](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/7abe282277bf8254c87896300afbc892d1c82801))
+
 ## 0.1.0 (2023-05-12)
 
 
