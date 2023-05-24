@@ -24,6 +24,7 @@ const program = createCommand(name, description);
 program.addCommand(ssh_command);
 program.addCommand(user_command);
 program.addCommand(wifi_command);
+program.addHelpCommand();
 
 program.action(async () => {
   await exit_fail_on_error(async () => {
