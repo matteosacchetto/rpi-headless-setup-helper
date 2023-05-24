@@ -42,7 +42,7 @@ where you have to replace `{version}` with the version number you downloaded (ex
 
 ### Bash completion
 
-Since version 0.2.1, the package also includes a bash completion script. If you install the package globally, you are on Linux and you use bash as your main shell, I highly suggest installing bash completion, as it improves the UX of this module.
+Since version 0.2.0, the package also includes a bash completion script. If you install the package globally, you are on Linux and you use bash as your main shell, I highly suggest installing bash completion, as it improves the UX of this module.
 
 To install it, I recommend to perform the following steps.
 
