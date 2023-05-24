@@ -75,7 +75,7 @@ __rpi-headless-setup-helper_completion() {
       return 0;
     ;;
     *)
-      COMPREPLY=($(compgen -W "-h --help -v --version ssh user wifi" -- "$cur"))
+      COMPREPLY=($(compgen -W "-h --help -v --version ssh user wifi help" -- "$cur"))
       return 0;
     ;;
   esac
