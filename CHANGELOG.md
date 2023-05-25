@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.2.1...v0.2.2) (2023-05-25)
+
+
+### Bug Fixes
+
+* echo does not handle properly options in bash-completion ([#8](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/8)) ([f163cf3](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/f163cf3077e63a2b7958858ad929910cf70bf9d7))
+
 ## [0.2.1](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.2.0...v0.2.1) (2023-05-24)
 
 
