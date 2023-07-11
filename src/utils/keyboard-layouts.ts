@@ -359,10 +359,3 @@ export const kbd_layout_by_locale: ReadonlyMap<ISO_3166_Codes, Kbd_Layouts> =
     ['ZW', 'us'],
     ['XK', 'us'],
   ]);
-
-const tmp = [...kbd_layout_by_locale.values()];
-for (const el of kbd_layouts.keys()) {
-  if (!tmp.includes(el as any)) {
-    console.log(el);
-  }
-}
