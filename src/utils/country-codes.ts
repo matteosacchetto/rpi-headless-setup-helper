@@ -1,4 +1,4 @@
-export const iso_3166_codes: ReadonlySet<string> = new Set([
+const _iso_3166_codes = [
   'AF',
   'AL',
   'DZ',
@@ -249,7 +249,9 @@ export const iso_3166_codes: ReadonlySet<string> = new Set([
   'SX',
   'SS',
   'XK',
-]);
+] as const;
+export type ISO_3166_Codes = typeof _iso_3166_codes[number];
+export const iso_3166_codes: ReadonlySet<string> = new Set(_iso_3166_codes);
 
 export const is_country_code_valid = (country_code: string) => {
   return country_code !== '' ? iso_3166_codes.has(country_code) : false;
