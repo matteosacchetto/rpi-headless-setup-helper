@@ -250,7 +250,7 @@ const _iso_3166_codes = [
   'SS',
   'XK',
 ] as const;
-export type ISO_3166_Codes = typeof _iso_3166_codes[number];
+export type ISO_3166_Codes = (typeof _iso_3166_codes)[number];
 export const iso_3166_codes: ReadonlySet<string> = new Set(_iso_3166_codes);
 
 export const is_country_code_valid = (country_code: string) => {
