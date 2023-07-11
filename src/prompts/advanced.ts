@@ -1,19 +1,23 @@
 import { kbd_layout_by_locale } from '@/utils/keyboard-layouts';
 import { get_country_from_locale, get_locale_country } from '@/utils/locale';
 import { get_timezone } from '@/utils/timezone';
-import { error_to_msg } from '@/utils/validation';
+import { async_error_to_msg, error_to_msg } from '@/utils/validation';
 import { validate_kbd_layout } from '@/validation/kbd_layout';
 import { validate_timezone } from '@/validation/timezone';
 import confirm from '@inquirer/confirm';
 import input from '@inquirer/input';
 import chalk from 'chalk';
 import { Advanced } from './types';
+import { validate_username } from '@/validation/user';
+import { validate_key_path } from '@/validation/ssh';
 
 // Prop
 export const advanced_prompt = async ({
   ssh_enabled,
+  username,
 }: {
   ssh_enabled: boolean;
+  username: string;
 }) => {
   const enable = await confirm({
     message: 'Set advanced settings',
@@ -37,10 +41,20 @@ export const advanced_prompt = async ({
     });
 
     if (enable_pub_key) {
+      if(!username) {
+        username = await input({
+          message: 'Specify the SSH user for which you want to add the publich SSH key',
+          validate: (proposed_username) =>
+            error_to_msg(() => validate_username(proposed_username)),
+        });
+      }
+
       ssh.key_path = await input({
         message: `Public key path ${chalk.reset.dim(
           `(cwd: ${process.cwd()})`
         )}`,
+        validate: async (proposed_key_path) =>
+            await async_error_to_msg(async () => await validate_key_path(proposed_key_path)),
       });
 
       ssh.disable_password_login = await confirm({
