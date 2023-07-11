@@ -37,13 +37,13 @@ export const advanced_prompt = async ({
   if (ssh_enabled) {
     const enable_pub_key = await confirm({
       message: 'Add public key',
-      default: false,
+      default: true,
     });
 
     if (enable_pub_key) {
       if(!username) {
         username = await input({
-          message: 'Specify the SSH user for which you want to add the publich SSH key',
+          message: 'Specify the SSH user',
           validate: (proposed_username) =>
             error_to_msg(() => validate_username(proposed_username)),
         });
