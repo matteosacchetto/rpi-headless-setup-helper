@@ -39,7 +39,6 @@ program.action(async () => {
   const wifi = await wifi_prompt('*');
   const advanced = await advanced_prompt({
     ssh_enabled: ssh.enable,
-    username: user.enable ? user.username : '',
   });
 
   if (!ssh.enable && !user.enable && !wifi.enable && !advanced.enable) {
