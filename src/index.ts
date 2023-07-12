@@ -18,6 +18,8 @@ import { name, description } from './config';
 import ssh_command from './commands/ssh';
 import user_command from './commands/user';
 import wifi_command from './commands/wifi';
+import { advanced_prompt } from './prompts/advanced';
+import { advanced_config } from './config/advanced';
 
 const program = createCommand(name, description);
 
@@ -35,8 +37,12 @@ program.action(async () => {
   const ssh = await ssh_prompt();
   const user = await user_prompt('*');
   const wifi = await wifi_prompt('*');
+  const advanced = await advanced_prompt({
+    ssh_enabled: ssh.enable,
+    username: user.enable ? user.username : '',
+  });
 
-  if (!ssh.enable && !user.enable && !wifi.enable) {
+  if (!ssh.enable && !user.enable && !wifi.enable && !advanced.enable) {
     await exit_success(() => {
       logger.empty();
       logger.info('No configuration file created');
@@ -48,6 +54,7 @@ program.action(async () => {
     ssh,
     user: deep_redact(user, ['password']),
     wifi: deep_redact(wifi, ['psk']),
+    advanced,
   };
 
   // Ask for confirmation
@@ -102,6 +109,24 @@ program.action(async () => {
             ssid: wifi.ssid,
             psk: wifi.psk,
             overwrite,
+          }),
+        overwrite: false,
+        retry: true,
+      });
+    });
+  }
+
+  if (advanced.enable) {
+    await exit_fail_on_error(async () => {
+      await config_overwrite({
+        name: `Advanced`,
+        fn: async (overwrite: boolean) =>
+          await advanced_config({
+            overwrite,
+            hostname: advanced.hostname,
+            timezone: advanced.timezone,
+            kbd_layout: advanced.kbd_layout,
+            ssh: advanced.ssh,
           }),
         overwrite: false,
         retry: true,
