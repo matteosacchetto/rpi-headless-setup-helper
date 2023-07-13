@@ -20,7 +20,7 @@ export const async_error_to_msg = async <T extends unknown[], R>(
   ...params: T
 ) => {
   try {
-    return await fn(...params) as R;
+    return (await fn(...params)) as R;
   } catch (e) {
     if (e instanceof Error) {
       return e.message;

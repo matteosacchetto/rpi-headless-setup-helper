@@ -7,7 +7,7 @@ import * as a from '@/utils/advanced';
  *
  * @link https://github.com/RPi-Distro/raspberrypi-sys-mods/pull/40
  * @link https://github.com/raspberrypi/rpi-imager/blob/5fa3fbe8dcef4ab01c0a2fed5638759265c3f7f6/src/OptionsPopup.qml#L783
- * 
+ *
  * The customization used here is based on what the raspberry pi imager does
  */
 export const advanced_config = async ({

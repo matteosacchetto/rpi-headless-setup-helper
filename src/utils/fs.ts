@@ -18,7 +18,7 @@ export const throw_if_file_exists = async (path: string) => {
 };
 
 export const throw_if_file_not_exists = async (path: string) => {
-  if (!await exists(path)) {
+  if (!(await exists(path))) {
     throw new FileNotExistsError(`File '${path}' does not exist`);
   }
 };
