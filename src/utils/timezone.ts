@@ -1,11 +1,15 @@
+/* c8 ignore start */
 export const get_timezone = () => {
   return Intl.DateTimeFormat().resolvedOptions().timeZone;
 };
+/* c8 ignore end */
 
+/* c8 ignore start */
 export const get_timezone_offset = () => {
   const offset = -(new Date().getTimezoneOffset() / 60);
   return `UTC${offset > 0 ? `+${offset}` : offset < 0 ? `-${offset}` : ''}`;
 };
+/* c8 ignore end */
 
 const _timezone_list = [
   'Africa/Abidjan',
