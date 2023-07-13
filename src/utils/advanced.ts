@@ -1,7 +1,7 @@
 /**
  * The parts of the script used here are based on the following resource
  *
- * @link https://github.com/raspberrypi/rpi-imager/blob/5fa3fbe8dcef4ab01c0a2fed5638759265c3f7f6/src/OptionsPopup.qml#L783
+ * @link https://github.com/raspberrypi/rpi-imager/blob/5fa3fbe8dcef4ab01c0a2fed5638759265c3f7f6/src/OptionsPopup.qml
  *
  * This customization is based on what the raspberry pi imager does
  */

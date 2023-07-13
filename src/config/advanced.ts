@@ -5,8 +5,8 @@ import * as a from '@/utils/advanced';
 /**
  * For headless setup of advanced configuration refer to the following discussion and resource
  *
- * @link https://github.com/RPi-Distro/raspberrypi-sys-mods/pull/40
- * @link https://github.com/raspberrypi/rpi-imager/blob/5fa3fbe8dcef4ab01c0a2fed5638759265c3f7f6/src/OptionsPopup.qml#L783
+ * @link https://github.com/RPi-Distro/raspberrypi-sys-mods/pull/40#issuecomment-849552711
+ * @link https://github.com/raspberrypi/rpi-imager/blob/5fa3fbe8dcef4ab01c0a2fed5638759265c3f7f6/src/OptionsPopup.qml
  *
  * The customization used here is based on what the raspberry pi imager does
  */
