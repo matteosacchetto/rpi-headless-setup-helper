@@ -3,9 +3,12 @@ import { readFile, writeFile } from 'node:fs/promises';
 import * as a from '@/utils/advanced';
 
 /**
- * For headless setup, SSH can be enabled by placing a file named ssh, without any extension, onto the boot partition of the SD Card.
+ * For headless setup of advanced configuration refer to the following discussion and resource
  *
- * @link https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-headless-raspberry-pi
+ * @link https://github.com/RPi-Distro/raspberrypi-sys-mods/pull/40
+ * @link https://github.com/raspberrypi/rpi-imager/blob/5fa3fbe8dcef4ab01c0a2fed5638759265c3f7f6/src/OptionsPopup.qml#L783
+ * 
+ * The customization used here is based on what the raspberry pi imager does
  */
 export const advanced_config = async ({
   overwrite = false,
