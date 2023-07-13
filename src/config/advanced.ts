@@ -49,12 +49,12 @@ export const advanced_config = async ({
   // Update cmdline
   const cmdline_content = await readFile(cmdline, { encoding: 'utf-8' });
   const cmdline_updated_content = cmdline_content
-  .replaceAll(/systemd\.[^ ]+/g, '') // Remove previous systemd.* statements
-  .replace(
-    /init=[^ ]+/,
-    `init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/${firstrun} systemd.run_success_action=reboot systemd.unit=kernel-command-line.target`
-  ); // Remove previous init=* statement
-  
+    .replaceAll(/systemd\.[^ ]+/g, '') // Remove previous systemd.* statements
+    .replace(
+      /init=[^ ]+/,
+      `init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/${firstrun} systemd.run_success_action=reboot systemd.unit=kernel-command-line.target`
+    ); // Remove previous init=* statement
+
   await writeFile(cmdline, cmdline_updated_content, {
     mode: 0o755,
   });

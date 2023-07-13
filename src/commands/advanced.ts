@@ -51,7 +51,7 @@ advanced_command.action(async (options) => {
       fn: async () => validate_kbd_layout(options.kbdLayout),
     });
 
-    if(options.sshKey) {
+    if (options.sshKey) {
       await validation_spinner({
         name: 'timezone',
         value: options.sshKey,
@@ -71,8 +71,8 @@ advanced_command.action(async (options) => {
           kbd_layout: options.kbdLayout,
           ssh: {
             key_path: options.sshKey,
-            disable_password_login: options.sshPasswordDisable
-          }
+            disable_password_login: options.sshPasswordDisable,
+          },
         }),
       overwrite: options.yes,
       retry: !options.script,
