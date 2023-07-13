@@ -50,7 +50,7 @@ export const advanced_config = async ({
   const cmdline_content = await readFile(cmdline, { encoding: 'utf-8' });
   const cmdline_updated_content = cmdline_content.replace(
     /init=.*/,
-    'init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target'
+    `init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/${firstrun} systemd.run_success_action=reboot systemd.unit=kernel-command-line.target`
   );
   await writeFile(cmdline, cmdline_updated_content, {
     mode: 0o755,
