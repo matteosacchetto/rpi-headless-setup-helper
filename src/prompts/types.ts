@@ -18,3 +18,12 @@ export type WiFi = Pretty<
     country_code: string;
   }
 >;
+
+export type Advanced = Pretty<
+  CommonProperties & {
+    hostname: string;
+    ssh: { key_path?: string; disable_password_login?: boolean };
+    timezone: string;
+    kbd_layout: string;
+  }
+>;
