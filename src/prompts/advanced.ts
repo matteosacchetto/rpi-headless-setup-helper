@@ -9,6 +9,7 @@ import input from '@inquirer/input';
 import chalk from 'chalk';
 import { Advanced } from './types';
 import { validate_key_path } from '@/validation/ssh';
+import { validate_hostname } from '@/validation/hostname';
 
 // Prop
 export const advanced_prompt = async ({
@@ -24,6 +25,8 @@ export const advanced_prompt = async ({
   const hostname = await input({
     message: 'Set hostname',
     default: 'raspberrypi',
+    validate: (proposed_hostname) =>
+      error_to_msg(() => validate_hostname(proposed_hostname)),
   });
 
   const ssh: {
