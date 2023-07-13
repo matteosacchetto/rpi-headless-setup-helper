@@ -279,7 +279,7 @@ Set the specific keyboard layout based on the x11 list (on a Linux machine you c
 
 This options is `required`
 
-###### `-k, --ssh-key `
+###### `-k, --ssh-key <path_to_key>`
 
 Specify the path to the public key to copy to the raspberry pi first user.
 
@@ -288,7 +288,7 @@ Specify the path to the public key to copy to the raspberry pi first user.
 Disable SSH password authentication. This can be done ONLY if you provide a public key with the `-k` option (default: `false`)
 
 
-###### `-h, --hostname`
+###### `-h, --hostname <hostname>`
 
 Set a custom hostname (default: `raspberrypi`)
 
