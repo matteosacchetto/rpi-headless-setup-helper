@@ -11,13 +11,13 @@ NodeJS CLI which simplifies the headless setup of a Raspberry Pi
 Install it locally with
 
 ```bash
-npm i https://github.com/matteosacchetto/rpi-headless-setup-helper/releases/download/v0.2.2/matteosacchetto-rpi-headless-setup-helper-0.2.2.tgz
+npm i https://github.com/matteosacchetto/rpi-headless-setup-helper/releases/download/v0.3.0/matteosacchetto-rpi-headless-setup-helper-0.3.0.tgz
 ```
 
 Or install it globally with
 
 ```bash
-npm i --location=global https://github.com/matteosacchetto/rpi-headless-setup-helper/releases/download/v0.2.2/matteosacchetto-rpi-headless-setup-helper-0.2.2.tgz
+npm i --location=global https://github.com/matteosacchetto/rpi-headless-setup-helper/releases/download/v0.3.0/matteosacchetto-rpi-headless-setup-helper-0.3.0.tgz
 ```
 
 ### Other version
@@ -38,7 +38,7 @@ Or install it globally with
 npm i --location=global <link-to-rpi-headless-setup-helper-{version}.tgz>
 ```
 
-where you have to replace `{version}` with the version number you downloaded (ex: 0.2.2)
+where you have to replace `{version}` with the version number you downloaded (ex: 0.3.0)
 
 ### Bash completion
 
@@ -121,6 +121,7 @@ Commands:
   ssh [options]   create SSH headless setup file
   user [options]  create user headless setup file
   wifi [options]  create WiFi headless setup file
+  advanced [options]  create advanced headless setup file
   help [command]  display help for command
 ```
 
@@ -234,6 +235,62 @@ This option is `required`.
 Specify the passkey. It MUST be between 8 and 63 characters long.
 
 This option is `required`.
+
+###### `-y, --yes`
+
+In case the WiFi specific files for the headless setup already exist, overwrite them (default: `false`).
+
+###### `-s, --script`
+
+This CLI is being used in a script, so disable all interactive prompts. In case the WiFi specific files already exist and the `-y, --yes` option was not used, it will not ask if you want to overwrite the files and simply fail (default: `false`).
+
+#### `advanced`
+
+Allows you to configure additional settings, like SSH keys, disabling password authentication and so on. The way to configure these additional settings is based on the way the [rpi-imager]() tool does it, with some differences related to the configuration of SSH, user and WiFi. If you are interested in knowing more, please refer to [this discussion on how to run a script on first boot](https://github.com/RPi-Distro/raspberrypi-sys-mods/pull/40#issuecomment-849552711) and to [this file of the rpi-imager repo containing the details on how the configure those settings](https://github.com/raspberrypi/rpi-imager/blob/5fa3fbe8dcef4ab01c0a2fed5638759265c3f7f6/src/OptionsPopup.qml)
+
+```
+Usage: rpi-headless-setup-helper advanced [options]
+
+create advanced headless setup file
+
+Options:
+  -v, --version                  output the version number
+  -t, --timezone <timezone>      set the timezone
+  -l, --kbd-layout <kbd_layout>  set the keyboard layout
+  -k, --ssh-key <path_to_key>    specify the path to the public SSH key
+  -d, --ssh-password-disable     disable password authentication for SSH (default: false)
+  -h, --hostname <hostname>      set the hostname (default: "raspberrypi")
+  -y, --yes                      overwrite file if exists (default: false)
+  -s, --script                   it will run it as a script and will disable every interactive prompt (default: false)
+  --help                         display help for command
+```
+
+##### Options
+
+###### `-t, --timezone <timezone>`
+
+Set the timezone by specifying the IANA timezone identifier (ex. `America/New_York`).
+
+This options is `required`
+
+###### `-l, --kbd-layout <kbd_layout>`
+
+Set the specific keyboard layout based on the x11 list (on a Linux machine you can run `localectl list-x11-keymap-layouts` to see the whole list, or refer to [src/utils/keyboard-layouts.ts](src/utils/keyboard-layouts.ts)).
+
+This options is `required`
+
+###### `-k, --ssh-key `
+
+Specify the path to the public key to copy to the raspberry pi first user.
+
+###### `-d, --ssh-password-disable`
+
+Disable SSH password authentication. This can be done ONLY if you provide a public key with the `-k` option (default: `false`)
+
+
+###### `-h, --hostname`
+
+Set a custom hostname (default: `raspberrypi`)
 
 ###### `-y, --yes`
 
