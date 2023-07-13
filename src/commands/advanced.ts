@@ -57,6 +57,16 @@ advanced_command.action(async (options) => {
         value: options.sshKey,
         fn: async () => validate_key_path(options.sshKey!),
       });
+    } else if (options.sshPasswordDisable) {
+      await validation_spinner({
+        name: 'SSH disable password',
+        value: `${options.sshPasswordDisable}`,
+        fn: async () => {
+          throw new Error(
+            'to disable SSH password login you MUST provide an SSH key'
+          );
+        },
+      });
     }
   });
 
