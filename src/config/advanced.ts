@@ -27,6 +27,8 @@ export const advanced_config = async ({
   if (!overwrite) {
     await throw_if_file_exists(firstrun);
   }
+  const cmdline = 'cmdline.txt';
+  await throw_if_file_not_exists(cmdline);
 
   const firstrun_content = [
     a.start(),
@@ -45,13 +47,14 @@ export const advanced_config = async ({
   await writeFile(firstrun, firstrun_content);
 
   // Update cmdline
-  const cmdline = 'cmdline.txt';
-  await throw_if_file_not_exists(cmdline);
   const cmdline_content = await readFile(cmdline, { encoding: 'utf-8' });
-  const cmdline_updated_content = cmdline_content.replace(
-    /init=.*/,
+  const cmdline_updated_content = cmdline_content
+  .replaceAll(/systemd\.[^ ]+/g, '') // Remove previous systemd.* statements
+  .replace(
+    /init=[^ ]+/,
     `init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/${firstrun} systemd.run_success_action=reboot systemd.unit=kernel-command-line.target`
-  );
+  ); // Remove previous init=* statement
+  
   await writeFile(cmdline, cmdline_updated_content, {
     mode: 0o755,
   });
