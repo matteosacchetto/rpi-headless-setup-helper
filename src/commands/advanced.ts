@@ -13,9 +13,9 @@ const description = 'create advanced headless setup file';
 
 const advanced_command = createCommand(name, description)
   .requiredOption('-t, --timezone <timezone>', 'set the timezone')
-  .requiredOption('-k, --kbd <kbd_layout>', 'set the keyboard layout')
+  .requiredOption('-l, --kbd-layout <kbd_layout>', 'set the keyboard layout')
   .option(
-    '-s, --ssh-key <path_to_key>',
+    '-k, --ssh-key <path_to_key>',
     'specify the path to the public SSH key'
   )
   .option(
@@ -23,7 +23,7 @@ const advanced_command = createCommand(name, description)
     'disable password authentication for SSH',
     false
   )
-  .option('-n, --hostname <hostname>', 'set the hostname', 'raspberrypi')
+  .option('-h, --hostname <hostname>', 'set the hostname', 'raspberrypi')
   .option('-y, --yes', 'overwrite file if exists', false)
   .option(
     '-s, --script',
@@ -47,8 +47,8 @@ advanced_command.action(async (options) => {
 
     await validation_spinner({
       name: 'keyboard layout',
-      value: options.kbd,
-      fn: async () => validate_kbd_layout(options.kbd),
+      value: options.kbdLayout,
+      fn: async () => validate_kbd_layout(options.kbdLayout),
     });
 
     if(options.sshKey) {
@@ -62,13 +62,13 @@ advanced_command.action(async (options) => {
 
   await exit_fail_on_error(async () => {
     await config_overwrite({
-      name: `SSH`,
+      name: `advanced`,
       fn: async (overwrite: boolean) =>
         await advanced_config({
           overwrite,
           hostname: options.hostname,
           timezone: options.timezone,
-          kbd_layout: options.kbd,
+          kbd_layout: options.kbdLayout,
           ssh: {
             key_path: options.sshKey,
             disable_password_login: options.sshPasswordDisable
