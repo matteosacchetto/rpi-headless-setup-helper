@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.3.0](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.2.2...v0.3.0) (2023-07-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* add advanced configuration to run on first boot ([#10](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/10))
+
+### Features
+
+* add advanced configuration to run on first boot ([#10](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/10)) ([ea7d4e8](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/ea7d4e8ca179a552bb8ec93ff186643a84aff539))
+
 ## [0.2.2](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.2.1...v0.2.2) (2023-05-25)
 
 
