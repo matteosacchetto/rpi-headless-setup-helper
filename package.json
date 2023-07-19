@@ -34,7 +34,7 @@
     "@types/node": "^18.16.19",
     "@types/tap": "^15.0.8",
     "@types/which": "^3.0.0",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
     "@typescript-eslint/parser": "^6.1.0",
     "c8": "^8.0.0",
     "esbuild": "^0.18.14",
