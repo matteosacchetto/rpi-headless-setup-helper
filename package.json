@@ -41,7 +41,7 @@
     "eslint": "^8.44.0",
     "eslint-config-prettier": "^8.8.0",
     "prettier": "^3.0.0",
-    "rollup": "^3.26.2",
+    "rollup": "^3.26.3",
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-node-externals": "^6.1.1",
     "rollup-plugin-typescript-paths": "^1.4.0",
