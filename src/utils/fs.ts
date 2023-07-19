@@ -1,4 +1,5 @@
 import { FileExistsError } from '@/errors/file-exists-error';
+import { FileNotExistsError } from '@/errors/file-not-exists-error';
 import { access, constants } from 'fs/promises';
 
 export const exists = async (path: string) => {
@@ -13,5 +14,11 @@ export const exists = async (path: string) => {
 export const throw_if_file_exists = async (path: string) => {
   if (await exists(path)) {
     throw new FileExistsError(`File '${path}' already exists`);
+  }
+};
+
+export const throw_if_file_not_exists = async (path: string) => {
+  if (!(await exists(path))) {
+    throw new FileNotExistsError(`File '${path}' does not exist`);
   }
 };
