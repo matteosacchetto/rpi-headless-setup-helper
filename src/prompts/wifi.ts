@@ -19,9 +19,7 @@ export const wifi_prompt = async (mask?: string | undefined) => {
   });
 
   if (!enable) {
-    return {
-      enable,
-    };
+    return { enable };
   }
 
   const default_country_code = get_country_from_locale(get_locale_country());
