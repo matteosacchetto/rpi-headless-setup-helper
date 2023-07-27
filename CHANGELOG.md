@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.3.0...v0.3.1) (2023-07-27)
+
+
+### Bug Fixes
+
+* **interactive prompt:** skip advanced options when enable is false ([#23](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/23)) ([75f089b](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/75f089ba2e8ce1fb3ec821cc58179d096cce1359))
+
 ## [0.3.0](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.2.2...v0.3.0) (2023-07-19)
 
 
