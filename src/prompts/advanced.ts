@@ -22,6 +22,10 @@ export const advanced_prompt = async ({
     default: false,
   });
 
+  if (!enable) {
+    return { enable };
+  }
+
   const hostname = await input({
     message: 'Set hostname',
     default: 'raspberrypi',
