@@ -4,6 +4,45 @@ NodeJS CLI which simplifies the headless setup of a Raspberry Pi
 
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/matteosacchetto/rpi-headless-setup-helper?label=latest%20release&style=for-the-badge)
 
+## Table of contents
+
+* [Install](#install)
+  + [Latest version](#latest-version)
+  + [Other version](#other-version)
+  + [Bash completion](#bash-completion)
+* [Dependencies](#dependencies)
+* [Run](#run)
+* [CLI interface](#cli-interface)
+  + [Commands](#commands)
+    - [`ssh`](#-ssh-)
+      * [Options](#options)
+        + [`-y, --yes`](#--y----yes-)
+        + [`-s, --script`](#--s----script-)
+    - [`user`](#-user-)
+      * [Options](#options-1)
+        + [`-u, --username <username>`](#--u----username--username--)
+        + [`-p, --password <password>`](#--p----password--password--)
+        + [`-y, --yes`](#--y----yes--1)
+        + [`-s, --script`](#--s----script--1)
+    - [`wifi`](#-wifi-)
+      * [Options](#options-2)
+        + [`-c, --country <country_code>`](#--c----country--country-code--)
+        + [`-i, --id <ssid>`](#--i----id--ssid--)
+        + [`-p, --psk <psk>`](#--p----psk--psk--)
+        + [`-y, --yes`](#--y----yes--2)
+        + [`-s, --script`](#--s----script--2)
+    - [`advanced`](#-advanced-)
+      * [Options](#options-3)
+        + [`-t, --timezone <timezone>`](#--t----timezone--timezone--)
+        + [`-l, --kbd-layout <kbd_layout>`](#--l----kbd-layout--kbd-layout--)
+        + [`-k, --ssh-key <path_to_key>`](#--k----ssh-key--path-to-key--)
+        + [`-d, --ssh-password-disable`](#--d----ssh-password-disable-)
+        + [`-h, --hostname <hostname>`](#--h----hostname--hostname--)
+        + [`-y, --yes`](#--y----yes--3)
+        + [`-s, --script`](#--s----script--3)
+  + [Usage](#usage)
+
+
 ## Install
 
 ### Latest version
