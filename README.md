@@ -11,13 +11,13 @@ NodeJS CLI which simplifies the headless setup of a Raspberry Pi
 Install it locally with
 
 ```bash
-npm i https://github.com/matteosacchetto/rpi-headless-setup-helper/releases/download/v0.3.0/matteosacchetto-rpi-headless-setup-helper-0.3.0.tgz
+npm i https://github.com/matteosacchetto/rpi-headless-setup-helper/releases/download/v0.3.1/matteosacchetto-rpi-headless-setup-helper-0.3.1.tgz
 ```
 
 Or install it globally with
 
 ```bash
-npm i --location=global https://github.com/matteosacchetto/rpi-headless-setup-helper/releases/download/v0.3.0/matteosacchetto-rpi-headless-setup-helper-0.3.0.tgz
+npm i --location=global https://github.com/matteosacchetto/rpi-headless-setup-helper/releases/download/v0.3.1/matteosacchetto-rpi-headless-setup-helper-0.3.1.tgz
 ```
 
 ### Other version
@@ -38,7 +38,7 @@ Or install it globally with
 npm i --location=global <link-to-rpi-headless-setup-helper-{version}.tgz>
 ```
 
-where you have to replace `{version}` with the version number you downloaded (ex: 0.3.0)
+where you have to replace `{version}` with the version number you downloaded (ex: 0.3.1)
 
 ### Bash completion
 
@@ -133,6 +133,8 @@ If you instead want to use it in a non interactive way, or you plan to use it in
 
 #### `ssh`
 
+since: `v0.2.0`
+
 Allows you to create the files necessary for the [headless configuration of SSH on a Raspberry Pi](https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-headless-raspberry-pi).
 
 ```
@@ -158,6 +160,8 @@ In case the SSH specific files for the headless setup already exist, overwrite t
 This CLI is being used in a script, so disable all interactive prompts. In case the SSH specific files already exist and the `-y, --yes` option was not used, it will not ask if you want to overwrite the files and simply fail (default: `false`).
 
 #### `user`
+
+since: `v0.2.0`
 
 Allows you to create the files necessary for the [headless configuration of the first user of the Raspberry Pi](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-a-user).
 
@@ -198,6 +202,8 @@ In case the user specific files for the headless setup already exist, overwrite 
 This CLI is being used in a script, so disable all interactive prompts. In case the user specific files already exist and the `-y, --yes` option was not used, it will not ask if you want to overwrite the files and simply fail (default: `false`).
 
 #### `wifi`
+
+since: `v0.2.0`
 
 Allows you to create the files necessary for the [headless configuration of the WiFi on the Raspberry Pi](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-networking-2).
 
@@ -245,6 +251,8 @@ In case the WiFi specific files for the headless setup already exist, overwrite 
 This CLI is being used in a script, so disable all interactive prompts. In case the WiFi specific files already exist and the `-y, --yes` option was not used, it will not ask if you want to overwrite the files and simply fail (default: `false`).
 
 #### `advanced`
+
+since: `v0.3.0`
 
 Allows you to configure additional settings, like SSH keys, disabling password authentication and so on. The way to configure these additional settings is based on the way the [rpi-imager]() tool does it, with some differences related to the configuration of SSH, user and WiFi. If you are interested in knowing more, please refer to [this discussion on how to run a script on first boot](https://github.com/RPi-Distro/raspberrypi-sys-mods/pull/40#issuecomment-849552711) and to [this file of the rpi-imager repo containing the details on how the configure those settings](https://github.com/raspberrypi/rpi-imager/blob/5fa3fbe8dcef4ab01c0a2fed5638759265c3f7f6/src/OptionsPopup.qml)
 
