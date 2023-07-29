@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.2](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.3.1...v0.3.2) (2023-07-29)
+
+
+### Bug Fixes
+
+* cursor not showing properly its updated position ([#25](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/25)) ([11978cf](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/11978cf9c8c6fc41f3c440daaef77123b4232776))
+
 ## [0.3.1](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.3.0...v0.3.1) (2023-07-27)
 
 
