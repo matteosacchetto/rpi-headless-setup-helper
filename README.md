@@ -50,13 +50,13 @@ NodeJS CLI which simplifies the headless setup of a Raspberry Pi
 Install it locally with
 
 ```bash
-npm i https://github.com/matteosacchetto/rpi-headless-setup-helper/releases/download/v0.3.1/matteosacchetto-rpi-headless-setup-helper-0.3.1.tgz
+npm i https://github.com/matteosacchetto/rpi-headless-setup-helper/releases/download/v0.3.2/matteosacchetto-rpi-headless-setup-helper-0.3.1.tgz
 ```
 
 Or install it globally with
 
 ```bash
-npm i --location=global https://github.com/matteosacchetto/rpi-headless-setup-helper/releases/download/v0.3.1/matteosacchetto-rpi-headless-setup-helper-0.3.1.tgz
+npm i --location=global https://github.com/matteosacchetto/rpi-headless-setup-helper/releases/download/v0.3.2/matteosacchetto-rpi-headless-setup-helper-0.3.1.tgz
 ```
 
 ### Other version
