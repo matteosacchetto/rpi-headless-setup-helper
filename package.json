@@ -31,7 +31,7 @@
     "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-run": "^3.0.1",
     "@rollup/plugin-typescript": "^11.1.2",
-    "@types/node": "^18.17.1",
+    "@types/node": "^18.17.3",
     "@types/tap": "^15.0.8",
     "@types/which": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^6.2.0",
