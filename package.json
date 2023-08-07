@@ -39,7 +39,7 @@
     "c8": "^8.0.1",
     "esbuild": "^0.18.17",
     "eslint": "^8.46.0",
-    "eslint-config-prettier": "^8.9.0",
+    "eslint-config-prettier": "^9.0.0",
     "prettier": "^3.0.0",
     "rollup": "^3.27.0",
     "rollup-plugin-esbuild": "^5.0.0",
