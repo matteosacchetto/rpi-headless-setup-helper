@@ -36,3 +36,7 @@ updates:
       # Allow only minor and patch
       - dependency-name: "@types/node"
         update-types: ["version-update:semver-major"]
+    groups:
+      dependencies:
+        patterns:
+          - '*'
