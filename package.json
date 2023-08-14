@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "@commander-js/extra-typings": "^11.0.0",
-    "@inquirer/confirm": "^2.0.7",
+    "@inquirer/confirm": "^2.0.8",
     "@inquirer/input": "^1.2.6",
     "@inquirer/password": "^1.1.6",
     "chalk": "^5.3.0",
