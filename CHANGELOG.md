@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.3](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.3.2...v0.3.3) (2023-08-14)
+
+
+### Bug Fixes
+
+* update dependencies ([f3aa129](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/f3aa12985a963a1f89c2142c3a1ef4157aeb2850))
+
 ## [0.3.2](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.3.1...v0.3.2) (2023-07-29)
 
 
