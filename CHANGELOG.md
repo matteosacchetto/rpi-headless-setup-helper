@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.4](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.3.3...v0.3.4) (2023-09-11)
+
+
+### Bug Fixes
+
+* gracefully handle CTRL-C in prompts ([#50](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/50)) ([781fbd5](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/781fbd5fa6ad35b0742776f8ff1b22c370939880))
+
 ## [0.3.3](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.3.2...v0.3.3) (2023-08-14)
 
 
