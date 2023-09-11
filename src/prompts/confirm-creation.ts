@@ -1,4 +1,5 @@
 import { logger } from '@/logger';
+import { exit_success_on_error_ignore } from '@/utils/process';
 import confirm from '@inquirer/confirm';
 import chalk from 'chalk';
 
@@ -8,10 +9,13 @@ export const confirm_creation_prompt = async (
   logger.info(chalk.bold('Configuration'));
   logger.log(redacted_configuration);
 
-  const confirm_creation = await confirm({
-    message: 'Proceed with the creation of configuration files',
-    default: true,
-  });
+  const confirm_creation = await exit_success_on_error_ignore(
+    async () =>
+      await confirm({
+        message: 'Proceed with the creation of configuration files',
+        default: true,
+      })
+  );
 
   return confirm_creation;
 };

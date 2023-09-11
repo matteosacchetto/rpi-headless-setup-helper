@@ -38,9 +38,9 @@ export const exit_fail = async <T extends unknown[], R>(
 export const exit_success_on_error = async <T extends unknown[], R>(
   fn: (...params: T) => R,
   ...params: T
-) => {
+): Promise<R> => {
   try {
-    await fn(...params);
+    return await fn(...params);
   } catch (e) {
     log_indent({
       fn: () => {
@@ -51,12 +51,23 @@ export const exit_success_on_error = async <T extends unknown[], R>(
   }
 };
 
+export const exit_success_on_error_ignore = async <T extends unknown[], R>(
+  fn: (...params: T) => R,
+  ...params: T
+): Promise<R> => {
+  try {
+    return await fn(...params);
+  } catch (e) {
+    process.exit(0);
+  }
+};
+
 export const exit_fail_on_error = async <T extends unknown[], R>(
   fn: (...params: T) => R,
   ...params: T
-) => {
+): Promise<R> => {
   try {
-    await fn(...params);
+    return await fn(...params);
   } catch (e) {
     log_indent({
       fn: () => {
