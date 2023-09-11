@@ -11,12 +11,16 @@ import {
 } from '@/validation/wifi';
 import { error_to_msg } from '@/utils/validation';
 import { WiFi } from './types';
+import { exit_success_on_error_ignore } from '@/utils/process';
 
 export const wifi_prompt = async (mask?: string | undefined) => {
-  const enable = await confirm({
-    message: 'Enable WiFi',
-    default: false,
-  });
+  const enable = await exit_success_on_error_ignore(
+    async () =>
+      await confirm({
+        message: 'Enable WiFi',
+        default: false,
+      })
+  );
 
   if (!enable) {
     return { enable };
@@ -24,37 +28,49 @@ export const wifi_prompt = async (mask?: string | undefined) => {
 
   const default_country_code = get_country_from_locale(get_locale_country());
 
-  const country_code = await input({
-    message: 'ISO-3166-1 country code',
-    default: is_country_code_valid(default_country_code)
-      ? default_country_code
-      : '',
-    validate: (proposed_code: string) =>
-      error_to_msg(() => validate_country_code(proposed_code)),
-  });
+  const country_code = await exit_success_on_error_ignore(
+    async () =>
+      await input({
+        message: 'ISO-3166-1 country code',
+        default: is_country_code_valid(default_country_code)
+          ? default_country_code
+          : '',
+        validate: (proposed_code: string) =>
+          error_to_msg(() => validate_country_code(proposed_code)),
+      })
+  );
 
-  const ssid = await input({
-    message: 'SSID',
-    validate: (proposed_ssid: string) =>
-      error_to_msg(() => validate_ssid(proposed_ssid)),
-  });
+  const ssid = await exit_success_on_error_ignore(
+    async () =>
+      await input({
+        message: 'SSID',
+        validate: (proposed_ssid: string) =>
+          error_to_msg(() => validate_ssid(proposed_ssid)),
+      })
+  );
 
   let psk, confirm_psk;
 
   do {
-    psk = await password({
-      message: 'Password',
-      mask,
-      validate: (proposed_psk: string) =>
-        error_to_msg(() => validate_psk(proposed_psk)),
-    });
+    psk = await exit_success_on_error_ignore(
+      async () =>
+        await password({
+          message: 'Password',
+          mask,
+          validate: (proposed_psk: string) =>
+            error_to_msg(() => validate_psk(proposed_psk)),
+        })
+    );
 
-    confirm_psk = await password({
-      message: 'Confirm password',
-      mask,
-      validate: (proposed_psk: string) =>
-        error_to_msg(() => validate_psk(proposed_psk)),
-    });
+    confirm_psk = await exit_success_on_error_ignore(
+      async () =>
+        await password({
+          message: 'Confirm password',
+          mask,
+          validate: (proposed_psk: string) =>
+            error_to_msg(() => validate_psk(proposed_psk)),
+        })
+    );
 
     if (psk !== confirm_psk) {
       logger.error('Passwords do not match');
