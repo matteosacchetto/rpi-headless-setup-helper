@@ -54,9 +54,9 @@
   },
   "dependencies": {
     "@commander-js/extra-typings": "^11.0.0",
-    "@inquirer/confirm": "^2.0.13",
-    "@inquirer/input": "^1.2.12",
-    "@inquirer/password": "^1.1.12",
+    "@inquirer/confirm": "^2.0.14",
+    "@inquirer/input": "^1.2.13",
+    "@inquirer/password": "^1.1.13",
     "chalk": "^5.3.0",
     "commander": "^11.0.0",
     "log-symbols": "^5.1.0",
