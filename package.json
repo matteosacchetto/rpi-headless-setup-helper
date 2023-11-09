@@ -22,7 +22,7 @@
     "pretap": "npx tap build",
     "tap": "tap --node-arg='--no-warnings' --node-arg='--loader=tsx/esm' --disable-coverage --allow-empty-coverage",
     "pretest": "npm run lint && npx tap build",
-    "test": "c8 -c .c8rc.json tap --node-arg='--no-warnings' --node-arg='--loader=tsx/esm' --disable-coverage --allow-empty-coverage test/**/*.test.ts",
+    "test": "c8 -c .c8rc.json tap --node-arg='--no-warnings' --node-arg='--loader=tsx/esm' --disable-coverage --allow-empty-coverage **/test/**/*.test.ts",
     "prepack": "npm run build"
   },
   "devDependencies": {
