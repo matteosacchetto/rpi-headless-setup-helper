@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.3.4...v0.4.0) (2023-11-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump dependencies ([#83](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/83))
+* bump min node version to v18.18.0 ([#83](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/83))
+
+### Bug Fixes
+
+* bump dependencies ([#83](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/83)) ([db7105a](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/db7105ae38af070631b7e59d1daad97041241f71))
+
 ## [0.3.4](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.3.3...v0.3.4) (2023-09-11)
 
 
