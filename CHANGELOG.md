@@ -6,11 +6,11 @@
 ### ⚠ BREAKING CHANGES
 
 * bump dependencies ([#83](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/83))
+* bump min node version to v18.18.0 ([#83](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/83))
 
 ### Bug Fixes
 
 * bump dependencies ([#83](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/83)) ([db7105a](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/db7105ae38af070631b7e59d1daad97041241f71))
-* **deps-dev:** replace @esbuild-kit/esm-loader with tsx ([#81](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/81)) ([b2e5be7](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/b2e5be7731c388925ad3eb3bc1f7e94e9284a854))
 
 ## [0.3.4](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.3.3...v0.3.4) (2023-09-11)
 
