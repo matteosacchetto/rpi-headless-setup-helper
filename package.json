@@ -19,9 +19,9 @@
     "build:dev": "rollup -c --environment NODE_ENV:development",
     "build:debug": "rollup -c --environment NODE_ENV:debug",
     "node": "node --loader=tsx/esm --no-warnings",
-    "tap": "tap --node-arg='--no-warnings' --node-arg='--loader=tsx/esm' --no-coverage",
+    "tap": "tap --node-arg='--no-warnings' --node-arg='--loader=tsx/esm' --disable-coverage",
     "pretest": "npm run lint",
-    "test": "c8 -c .c8rc.json tap --node-arg='--no-warnings' --node-arg='--loader=tsx/esm' --no-coverage",
+    "test": "c8 -c .c8rc.json tap --node-arg='--no-warnings' --node-arg='--loader=tsx/esm' --disable-coverage test/**/*.ts",
     "prepack": "npm run build"
   },
   "devDependencies": {
@@ -44,7 +44,7 @@
     "rollup-plugin-esbuild": "^6.1.0",
     "rollup-plugin-node-externals": "^6.1.2",
     "rollup-plugin-typescript-paths": "^1.4.0",
-    "tap": "^16.3.9",
+    "tap": "^18.5.7",
     "tsx": "^4.0.0",
     "typescript": "^5.2.2"
   },
@@ -63,5 +63,10 @@
     "ora": "^7.0.1",
     "strip-ansi": "^7.1.0",
     "which": "^4.0.0"
+  },
+  "tap": {
+    "plugin": [
+      "!@tapjs/typescript"
+    ]
   }
 }
