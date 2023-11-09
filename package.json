@@ -21,7 +21,7 @@
     "node": "node --loader=tsx/esm --no-warnings",
     "tap": "tap --node-arg='--no-warnings' --node-arg='--loader=tsx/esm' --disable-coverage",
     "pretest": "npm run lint",
-    "test": "c8 -c .c8rc.json tap --node-arg='--no-warnings' --node-arg='--loader=tsx/esm' --disable-coverage test/**/*.ts",
+    "test": "c8 -c .c8rc.json tap --node-arg='--no-warnings' --node-arg='--loader=tsx/esm' --disable-coverage **/test/**/*.test.ts",
     "prepack": "npm run build"
   },
   "devDependencies": {
