@@ -19,8 +19,9 @@
     "build:dev": "rollup -c --environment NODE_ENV:development",
     "build:debug": "rollup -c --environment NODE_ENV:debug",
     "node": "node --loader=tsx/esm --no-warnings",
+    "pretap": "npx tap build",
     "tap": "tap --node-arg='--no-warnings' --node-arg='--loader=tsx/esm' --disable-coverage",
-    "pretest": "npm run lint",
+    "pretest": "npm run lint && npx tap build",
     "test": "c8 -c .c8rc.json tap --node-arg='--no-warnings' --node-arg='--loader=tsx/esm' --disable-coverage **/test/**/*.test.ts",
     "prepack": "npm run build"
   },
