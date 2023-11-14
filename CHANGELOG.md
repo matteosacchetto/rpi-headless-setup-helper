@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.4.0...v0.4.1) (2023-11-14)
+
+
+### Bug Fixes
+
+* release constraint on npm version ([0ee5f6b](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/0ee5f6bb230a3398786026b8dabd53fa17eab866))
+
 ## [0.4.0](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.3.4...v0.4.0) (2023-11-09)
 
 
