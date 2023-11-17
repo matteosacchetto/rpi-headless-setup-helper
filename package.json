@@ -22,7 +22,7 @@
     "pretap": "npx tap build",
     "tap": "tap --node-arg='--no-warnings' --node-arg='--loader=tsx/esm' --disable-coverage --allow-empty-coverage",
     "pretest": "npm run lint && npx tap build",
-    "test": "c8 -c .c8rc.json tap --node-arg='--no-warnings' --node-arg='--loader=tsx/esm' --disable-coverage --allow-empty-coverage **/test/**/*.test.ts",
+    "test": "c8 -c .c8rc.json tap --node-arg='--no-warnings' --node-arg='--loader=tsx/esm' --disable-coverage --allow-empty-coverage test/*.test.ts test/**/*.test.ts",
     "prepack": "npm run build"
   },
   "devDependencies": {
@@ -32,7 +32,6 @@
     "@rollup/plugin-run": "^3.0.2",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/node": "^18.18.9",
-    "@types/tap": "^15.0.8",
     "@types/which": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
