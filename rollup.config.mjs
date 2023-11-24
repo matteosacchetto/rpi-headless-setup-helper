@@ -58,6 +58,7 @@ export default defineConfig({
           }),
           esbuild({
             legalComments: 'none',
+            target: 'esnext',
           }),
         ]
       : typescript({
