@@ -16,7 +16,7 @@
   // Add the IDs of extensions you want installed when the container is created.
   "customizations": {
     "vscode": {
-      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+      "extensions": ["biomejs.biome", "esbenp.prettier-vscode"]
     }
   },
 
