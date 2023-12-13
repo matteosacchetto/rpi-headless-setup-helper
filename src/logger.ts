@@ -5,8 +5,8 @@ import { inspect } from 'util';
 import { Console } from 'console';
 
 enum STD_FD {
-  OUT,
-  ERR,
+  OUT = 0,
+  ERR = 1,
 }
 
 class Logger {
