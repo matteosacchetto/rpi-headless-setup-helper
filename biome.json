@@ -4,6 +4,8 @@
     "enabled": false
   },
   "linter": {
+    "ignore": ["*.json"],
+    "include": ["src/*.ts", "test/*.ts"],
     "enabled": true,
     "rules": {
       "recommended": true,
