@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.4.1...v0.4.2) (2023-12-19)
+
+
+### Features
+
+* **advanced:** add support for tilde expansion ([#96](https://github.com/matteosacchetto/rpi-headless-setup-helper/issues/96)) ([e8f8b9c](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/e8f8b9cb4efbfd185e193bb816d6309d184c7ab8))
+
 ## [0.4.1](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.4.0...v0.4.1) (2023-11-14)
 
 
