@@ -11,6 +11,7 @@ import { Advanced } from './types';
 import { validate_key_path } from '@/validation/ssh';
 import { validate_hostname } from '@/validation/hostname';
 import { exit_success_on_error_ignore } from '@/utils/process';
+import { untildify } from '@/utils/fs';
 
 // Prop
 export const advanced_prompt = async ({
@@ -55,17 +56,24 @@ export const advanced_prompt = async ({
     );
 
     if (enable_pub_key) {
-      ssh.key_path = await exit_success_on_error_ignore(
-        async () =>
-          await input({
-            message: `Public key path ${chalk.reset.dim(
-              `(cwd: ${process.cwd()})`
-            )}`,
-            validate: async (proposed_key_path) =>
-              await async_error_to_msg(
-                async () => await validate_key_path(proposed_key_path)
-              ),
-          })
+      ssh.key_path = untildify(
+        (
+          await exit_success_on_error_ignore(
+            async () =>
+              await input({
+                message: `Public key path ${chalk.reset.dim(
+                  `(cwd: ${process.cwd()})`
+                )}`,
+                validate: async (proposed_key_path) =>
+                  await async_error_to_msg(
+                    async () =>
+                      await validate_key_path(
+                        untildify(proposed_key_path.trim())
+                      )
+                  ),
+              })
+          )
+        ).trim()
       );
 
       ssh.disable_password_login = await exit_success_on_error_ignore(
