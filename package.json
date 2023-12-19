@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1-nightly.570d680",
-    "@rollup/plugin-json": "^6.0.1",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-replace": "^5.0.5",
     "@rollup/plugin-run": "^3.0.2",
     "@rollup/plugin-typescript": "^11.1.5",
@@ -35,7 +35,7 @@
     "@types/which": "^3.0.3",
     "c8": "^8.0.1",
     "esbuild": "^0.19.9",
-    "rollup": "^4.8.0",
+    "rollup": "^4.9.1",
     "rollup-plugin-esbuild": "^6.1.0",
     "rollup-plugin-node-externals": "^6.1.2",
     "rollup-plugin-typescript-paths": "^1.4.0",
