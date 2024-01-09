@@ -1,12 +1,12 @@
-import { config_overwrite } from '@/config/config-overwrite';
 import { advanced_config } from '@/config/advanced';
+import { config_overwrite } from '@/config/config-overwrite';
 import { createCommand } from '@/utils/commands';
 import { exit_fail_on_error } from '@/utils/process';
-import { validation_spinner } from '@/validation/validation-spinner';
-import { validate_timezone } from '@/validation/timezone';
+import { validate_hostname } from '@/validation/hostname';
 import { validate_kbd_layout } from '@/validation/kbd_layout';
 import { validate_key_path } from '@/validation/ssh';
-import { validate_hostname } from '@/validation/hostname';
+import { validate_timezone } from '@/validation/timezone';
+import { validation_spinner } from '@/validation/validation-spinner';
 
 const name = 'advanced';
 const description = 'create advanced headless setup file';

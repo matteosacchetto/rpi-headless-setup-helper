@@ -1,5 +1,5 @@
-import { throw_if_file_exists } from '@/utils/fs';
 import { writeFile } from 'node:fs/promises';
+import { throw_if_file_exists } from '@/utils/fs';
 
 /**
  * For headless setup, SSH can be enabled by placing a file named ssh, without any extension, onto the boot partition of the SD Card.

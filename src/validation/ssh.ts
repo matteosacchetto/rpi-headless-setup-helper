@@ -1,6 +1,6 @@
+import { readFile } from 'node:fs/promises';
 import { ValidationError } from '@/errors/validation-error';
 import { exists } from '@/utils/fs';
-import { readFile } from 'fs/promises';
 
 const ssh_dss = /^ssh-dss AAAAB3NzaC1kc3[0-9A-Za-z+/]+[=]{0,3}(\s.*)?$/;
 const ecdsa_sha2_nistp256 =

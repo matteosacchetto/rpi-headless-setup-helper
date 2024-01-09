@@ -1,6 +1,6 @@
-import t from 'tap';
-import { validate_username } from '@/validation/user';
 import { ValidationError } from '@/errors/validation-error';
+import { validate_username } from '@/validation/user';
+import t from 'tap';
 
 t.test('valid username', async (t) => {
   t.ok(validate_username('test'));

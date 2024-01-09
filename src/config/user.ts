@@ -1,6 +1,6 @@
+import { writeFile } from 'node:fs/promises';
 import { throw_if_file_exists } from '@/utils/fs';
 import { exec } from '@/utils/program';
-import { writeFile } from 'node:fs/promises';
 
 /**
  * To create a user add a `userconf.txt` file in the boot partition of the SD card.

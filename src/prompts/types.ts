@@ -1,4 +1,4 @@
-import { Pretty } from '@/utils/types';
+import type { Pretty } from '@/utils/types';
 
 export type CommonProperties = {
   enable: boolean;

@@ -1,7 +1,7 @@
+import { constants, access } from 'node:fs/promises';
+import { homedir } from 'node:os';
 import { FileExistsError } from '@/errors/file-exists-error';
 import { FileNotExistsError } from '@/errors/file-not-exists-error';
-import { access, constants } from 'fs/promises';
-import { homedir } from 'os';
 
 export const exists = async (path: string) => {
   try {

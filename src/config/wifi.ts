@@ -1,6 +1,6 @@
+import { writeFile } from 'node:fs/promises';
 import { passphrase } from '@/utils/crypto';
 import { throw_if_file_exists } from '@/utils/fs';
-import { writeFile } from 'node:fs/promises';
 
 /**
  * To add the wifi configuration add a `wpa_supplicant.conf` file in the boot partition of the SD card.

@@ -1,11 +1,11 @@
-import t from 'tap';
+import { ValidationError } from '@/errors/validation-error';
 import { iso_3166_codes } from '@/utils/country-codes';
 import {
   validate_country_code,
   validate_psk,
   validate_ssid,
 } from '@/validation/wifi';
-import { ValidationError } from '@/errors/validation-error';
+import t from 'tap';
 
 t.test('valid country code', async (t) => {
   t.ok(validate_country_code('US'));

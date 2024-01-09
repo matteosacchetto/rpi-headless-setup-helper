@@ -1,5 +1,5 @@
-import chalk from 'chalk';
 import { spinner_wrapper } from '@/utils/spinner-wrapper';
+import chalk from 'chalk';
 
 export const validation_spinner = async ({
   name,
