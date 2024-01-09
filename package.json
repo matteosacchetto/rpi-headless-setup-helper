@@ -11,8 +11,8 @@
   "license": "MIT",
   "scripts": {
     "lint": "tsc --pretty --incremental --noEmit && biome lint src test",
-    "style-check": "biome check src/ test/ && biome format src/ test/",
-    "style-fix": "biome check --apply src/ test/ && biome format --write src/ test/",
+    "style-check": "biome check --formatter-enabled=false --linter-enabled=false --organize-imports-enabled=true src/ test/  && biome format src/ test/",
+    "style-fix": "biome check --apply --formatter-enabled=false --linter-enabled=false --organize-imports-enabled=true src/ test/ && biome format --write src/ test/",
     "dev": "rollup -c -w --environment NODE_ENV:development",
     "prebuild": "rm -rf dist",
     "build": "npm run lint && rollup -c --environment NODE_ENV:production",
