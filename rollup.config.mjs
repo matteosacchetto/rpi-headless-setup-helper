@@ -1,13 +1,13 @@
 // rollup.config.mjs
+import { createRequire } from 'node:module';
 import json from '@rollup/plugin-json';
-import typescript from '@rollup/plugin-typescript';
-import run from '@rollup/plugin-run';
-import externals from 'rollup-plugin-node-externals';
-import esbuild from 'rollup-plugin-esbuild';
-import { typescriptPaths } from 'rollup-plugin-typescript-paths';
-import { defineConfig } from 'rollup';
 import replace from '@rollup/plugin-replace';
-import { createRequire } from 'module';
+import run from '@rollup/plugin-run';
+import typescript from '@rollup/plugin-typescript';
+import { defineConfig } from 'rollup';
+import esbuild from 'rollup-plugin-esbuild';
+import externals from 'rollup-plugin-node-externals';
+import { typescriptPaths } from 'rollup-plugin-typescript-paths';
 const require = createRequire(import.meta.url);
 
 const pkg = require('./package.json');
@@ -17,9 +17,9 @@ const usePreserveModules = true; // `true` -> keep modules structure, `false` ->
 const useThrowOnError = false; // On error throw and exception
 const useEsbuild = true; // `true` -> use esbuild, `false` use tsc
 
-const isCli = process.env.NODE_ENV === 'production' ? true : false; // `true` -> is a CLI so bunlde to a single file, `false` not a cli, so use `usePreserveModules`
+const isCli = process.env.NODE_ENV === 'production'; // `true` -> is a CLI so bunlde to a single file, `false` not a cli, so use `usePreserveModules`
 const isWatched = process.env.ROLLUP_WATCH === 'true'; // `true` if -w option is used
-const useSourceMaps = process.env.NODE_ENV === 'debug' ? true : false; // gerenetae sourcemaps only for debug
+const useSourceMaps = process.env.NODE_ENV === 'debug'; // gerenetae sourcemaps only for debug
 
 export default defineConfig({
   input: 'src/index.ts',
