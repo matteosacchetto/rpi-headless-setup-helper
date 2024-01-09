@@ -1,8 +1,8 @@
+import { Console } from 'node:console';
+import { inspect } from 'node:util';
 import chalk from 'chalk';
-import stripAnsi from 'strip-ansi';
 import logSymbols from 'log-symbols';
-import { inspect } from 'util';
-import { Console } from 'console';
+import stripAnsi from 'strip-ansi';
 
 enum STD_FD {
   OUT = 0,

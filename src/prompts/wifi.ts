@@ -1,17 +1,17 @@
-import input from '@inquirer/input';
-import confirm from '@inquirer/confirm';
-import password from '@inquirer/password';
 import { logger } from '@/logger';
-import { get_country_from_locale, get_locale_country } from '@/utils/locale';
 import { is_country_code_valid } from '@/utils/country-codes';
+import { get_country_from_locale, get_locale_country } from '@/utils/locale';
+import { exit_success_on_error_ignore } from '@/utils/process';
+import { error_to_msg } from '@/utils/validation';
 import {
   validate_country_code,
   validate_psk,
   validate_ssid,
 } from '@/validation/wifi';
-import { error_to_msg } from '@/utils/validation';
-import { WiFi } from './types';
-import { exit_success_on_error_ignore } from '@/utils/process';
+import confirm from '@inquirer/confirm';
+import input from '@inquirer/input';
+import password from '@inquirer/password';
+import type { WiFi } from './types';
 
 export const wifi_prompt = async (mask?: string | undefined) => {
   const enable = await exit_success_on_error_ignore(
@@ -49,7 +49,7 @@ export const wifi_prompt = async (mask?: string | undefined) => {
       })
   );
 
-  let psk, confirm_psk;
+  let psk: string, confirm_psk: string;
 
   do {
     psk = await exit_success_on_error_ignore(

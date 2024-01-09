@@ -1,26 +1,26 @@
+import { advanced_config } from './config/advanced';
 import { config_overwrite } from './config/config-overwrite';
 import { ssh_config } from './config/ssh';
 import { user_config } from './config/user';
 import { wifi_config } from './config/wifi';
-import { advanced_config } from './config/advanced';
 import { check_dependency_spinner } from './dependencies/check-dependency-spinner';
 import { openssl } from './dependencies/openssl';
 import { logger } from './logger';
+import { advanced_prompt } from './prompts/advanced';
 import { confirm_creation_prompt } from './prompts/confirm-creation';
 import { ssh_prompt } from './prompts/ssh';
 import { user_prompt } from './prompts/user';
 import { wifi_prompt } from './prompts/wifi';
-import { advanced_prompt } from './prompts/advanced';
 import { exit_fail_on_error, exit_success } from './utils/process';
 import { deep_redact } from './utils/redact';
 
+import { description, name } from './config';
 import { createCommand } from './utils/commands';
-import { name, description } from './config';
 
+import advanced_command from './commands/advanced';
 import ssh_command from './commands/ssh';
 import user_command from './commands/user';
 import wifi_command from './commands/wifi';
-import advanced_command from './commands/advanced';
 
 const program = createCommand(name, description);
 

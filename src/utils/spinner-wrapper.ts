@@ -1,4 +1,4 @@
-import ora, { Ora } from 'ora';
+import ora, { type Ora } from 'ora';
 
 export const spinner_wrapper = async ({
   spinner_text,

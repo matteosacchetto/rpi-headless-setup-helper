@@ -1,4 +1,4 @@
-import { ISO_3166_Codes } from './country-codes';
+import type { ISO_3166_Codes } from './country-codes';
 
 // Obtained with `localectl list-x11-keymap-layouts`
 export const _kbd_layouts = [

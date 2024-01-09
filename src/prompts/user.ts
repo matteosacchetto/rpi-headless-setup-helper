@@ -1,11 +1,11 @@
 import { logger } from '@/logger';
+import { exit_success_on_error_ignore } from '@/utils/process';
 import { error_to_msg } from '@/utils/validation';
 import { validate_username } from '@/validation/user';
 import confirm from '@inquirer/confirm';
 import input from '@inquirer/input';
 import password from '@inquirer/password';
-import { User } from './types';
-import { exit_success_on_error_ignore } from '@/utils/process';
+import type { User } from './types';
 
 export const user_prompt = async (mask?: string | undefined) => {
   const enable = await exit_success_on_error_ignore(
@@ -29,7 +29,7 @@ export const user_prompt = async (mask?: string | undefined) => {
       })
   );
 
-  let pwd, confirm_pwd;
+  let pwd: string, confirm_pwd: string;
 
   do {
     pwd = await exit_success_on_error_ignore(

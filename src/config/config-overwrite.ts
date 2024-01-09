@@ -1,8 +1,8 @@
 import { FileExistsError } from '@/errors/file-exists-error';
 import { logger } from '@/logger';
 import { confirm_overwrite_prompt } from '@/prompts/confirm-overwrite';
-import { config_spinner } from './config-spinner';
 import { log_indent } from '@/utils/log';
+import { config_spinner } from './config-spinner';
 
 export const config_overwrite = async ({
   name,
