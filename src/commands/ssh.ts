@@ -17,7 +17,7 @@ const ssh_command = createCommand(name, description)
 ssh_command.action(async (options) => {
   await exit_fail_on_error(async () => {
     await config_overwrite({
-      name: `SSH`,
+      name: 'SSH',
       fn: async (overwrite: boolean) => await ssh_config({ overwrite }),
       overwrite: options.yes,
       retry: !options.script,

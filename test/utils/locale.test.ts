@@ -1,18 +1,35 @@
+import assert from 'node:assert';
+import { join, relative } from 'node:path';
+import { describe, test } from 'node:test';
+import { fileURLToPath } from 'node:url';
 import { get_country_from_locale, get_locale_country } from '@/utils/locale';
-import t from 'tap';
 
-t.test('get country from "en-US"', async (t) => {
-  t.equal(get_country_from_locale('en-US'), 'US');
-});
+const filename = relative(
+  join(process.cwd(), 'test'),
+  fileURLToPath(import.meta.url)
+).replace('.test', '');
 
-t.test('get country from "en"', async (t) => {
-  t.equal(get_country_from_locale('en'), '');
-});
+describe(filename, async () => {
+  describe('get_country_from_locale', async () => {
+    test('get country from "en-US"', async () => {
+      assert.strictEqual(get_country_from_locale('en-US'), 'US');
+    });
 
-t.test('get country from ""', async (t) => {
-  t.equal(get_country_from_locale(''), '');
-});
+    test('get country from "en"', async () => {
+      assert.strictEqual(get_country_from_locale('en'), '');
+    });
 
-t.test('get locale', async (t) => {
-  t.equal(get_locale_country(), Intl.DateTimeFormat().resolvedOptions().locale);
+    test('get country from ""', async () => {
+      assert.strictEqual(get_country_from_locale(''), '');
+    });
+  });
+
+  describe('get_locale_country', async () => {
+    test('get locale', async () => {
+      assert.strictEqual(
+        get_locale_country(),
+        Intl.DateTimeFormat().resolvedOptions().locale
+      );
+    });
+  });
 });

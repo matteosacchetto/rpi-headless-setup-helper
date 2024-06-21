@@ -7,11 +7,11 @@ export const error_to_msg = <T extends unknown[], R>(
   } catch (e) {
     if (e instanceof Error) {
       return e.message;
-    } else if (typeof e === 'string') {
-      return e;
-    } else {
-      return 'unknown error';
     }
+    if (typeof e === 'string') {
+      return e;
+    }
+    return 'unknown error';
   }
 };
 
@@ -24,10 +24,10 @@ export const async_error_to_msg = async <T extends unknown[], R>(
   } catch (e) {
     if (e instanceof Error) {
       return e.message;
-    } else if (typeof e === 'string') {
-      return e;
-    } else {
-      return 'unknown error';
     }
+    if (typeof e === 'string') {
+      return e;
+    }
+    return 'unknown error';
   }
 };

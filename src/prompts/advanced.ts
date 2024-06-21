@@ -1,3 +1,4 @@
+import type { ISO_3166_Codes } from '@/utils/country-codes';
 import { untildify } from '@/utils/fs';
 import { kbd_layout_by_locale } from '@/utils/keyboard-layouts';
 import { get_country_from_locale, get_locale_country } from '@/utils/locale';
@@ -5,7 +6,7 @@ import { exit_success_on_error_ignore } from '@/utils/process';
 import { get_timezone } from '@/utils/timezone';
 import { async_error_to_msg, error_to_msg } from '@/utils/validation';
 import { validate_hostname } from '@/validation/hostname';
-import { validate_kbd_layout } from '@/validation/kbd_layout';
+import { validate_kbd_layout } from '@/validation/kbd-layout';
 import { validate_key_path } from '@/validation/ssh';
 import { validate_timezone } from '@/validation/timezone';
 import confirm from '@inquirer/confirm';
@@ -102,7 +103,7 @@ export const advanced_prompt = async ({
         message: 'Keyboard layout',
         default:
           kbd_layout_by_locale.get(
-            get_country_from_locale(get_locale_country()) as any
+            get_country_from_locale(get_locale_country()) as ISO_3166_Codes
           ) ?? '',
         validate: (proposed_kbd_layout) =>
           error_to_msg(() => validate_kbd_layout(proposed_kbd_layout)),

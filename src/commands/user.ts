@@ -35,7 +35,7 @@ user_command.action(async (options) => {
 
   await exit_fail_on_error(async () => {
     await config_overwrite({
-      name: `user`,
+      name: 'user',
       fn: async (overwrite: boolean) =>
         await user_config({
           username: options.username,

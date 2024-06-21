@@ -1,50 +1,71 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.5.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/1.8.2/schema.json",
+  "files": {
+    "include": [
+      "src/*.ts",
+      "test/*.ts",
+      "scripts/*.mjs",
+      "rollup.config.mjs",
+      "rollup.plugins.mjs",
+      "rollup.plugins.d.mts",
+      "test.runner.mjs",
+      "package.json",
+      "tsconfig.json",
+      "biome.json",
+      ".c8rc.json"
+    ]
+  },
   "organizeImports": {
     "enabled": true,
-    "include": ["src/*.ts", "test/*.ts", "rollup.config.mjs"]
+    "ignore": ["*.json"]
   },
   "linter": {
-    "ignore": ["*.json", "dist/*"],
-    "include": ["src/*.ts", "test/*.ts", "rollup.config.mjs"],
     "enabled": true,
     "rules": {
       "recommended": true,
       "complexity": {
-        "noUselessConstructor": "warn"
+        "noUselessConstructor": "warn",
+        "noUselessTernary": "error"
       },
       "suspicious": {
-        "noExplicitAny": "off"
+        "noExplicitAny": "warn",
+        "noExportsInTest": "error"
       },
       "style": {
-        "useTemplate": "off",
-        "noUnusedTemplateLiteral": "off",
-        "noUselessElse": "off",
+        "useTemplate": "warn",
+        "noUnusedTemplateLiteral": "warn",
+        "noUselessElse": "warn",
         "noNonNullAssertion": "off",
         "useSingleVarDeclarator": "off",
-        "useEnumInitializers": "warn"
-      },
-      "nursery": {
-        "noUnusedImports": "warn",
+        "useEnumInitializers": "warn",
         "useExportType": "error",
         "useImportType": "error",
         "useNodejsImportProtocol": "error",
+        "useFilenamingConvention": {
+          "level": "info",
+          "options": {
+            "filenameCases": ["kebab-case"],
+            "strictCase": false
+          }
+        },
+        "useConsistentArrayType": "warn"
+      },
+      "correctness": {
+        "noUnusedImports": "warn",
         "noInvalidUseBeforeDeclaration": "error",
-        "noUselessTernary": "error"
+        "noUnusedPrivateClassMembers": "warn"
       }
     }
   },
   "formatter": {
     "enabled": true,
-    "indentStyle": "space",
-    "ignore": ["dist/*"],
-    "include": ["src/*.ts", "test/*.ts", "rollup.config.mjs", "*.json"]
+    "indentStyle": "space"
   },
   "javascript": {
     "formatter": {
       "indentWidth": 2,
       "quoteStyle": "single",
-      "trailingComma": "es5"
+      "trailingCommas": "es5"
     }
   }
 }

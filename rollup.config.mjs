@@ -1,25 +1,29 @@
-// rollup.config.mjs
+// @ts-check
 import { createRequire } from 'node:module';
 import json from '@rollup/plugin-json';
 import replace from '@rollup/plugin-replace';
 import run from '@rollup/plugin-run';
-import typescript from '@rollup/plugin-typescript';
 import { defineConfig } from 'rollup';
 import esbuild from 'rollup-plugin-esbuild';
 import externals from 'rollup-plugin-node-externals';
 import { typescriptPaths } from 'rollup-plugin-typescript-paths';
+import { watcher } from './rollup.plugins.mjs';
 const require = createRequire(import.meta.url);
 
 const pkg = require('./package.json');
 
 const preferConst = true; // Use "const" instead of "var"
 const usePreserveModules = true; // `true` -> keep modules structure, `false` -> combine everything into a single file
-const useThrowOnError = false; // On error throw and exception
-const useEsbuild = true; // `true` -> use esbuild, `false` use tsc
+const usePreserveModulesProduction = true; // `true` -> keep modules structure, `false` -> combine everything into a single file
 
-const isCli = process.env.NODE_ENV === 'production'; // `true` -> is a CLI so bunlde to a single file, `false` not a cli, so use `usePreserveModules`
+const isProduction = process.env.NODE_ENV === 'production';
 const isWatched = process.env.ROLLUP_WATCH === 'true'; // `true` if -w option is used
-const useSourceMaps = process.env.NODE_ENV === 'debug'; // gerenetae sourcemaps only for debug
+const useSourceMaps = process.env.NODE_ENV === 'debug';
+
+/**
+ * @type {string[]}
+ */
+const additionalWatchFiles = []; // Array with additional files we want to watch on
 
 export default defineConfig({
   input: 'src/index.ts',
@@ -29,37 +33,42 @@ export default defineConfig({
     generatedCode: {
       constBindings: preferConst,
     },
-    preserveModules: isCli ? false : usePreserveModules,
+    preserveModules: isProduction
+      ? usePreserveModulesProduction
+      : usePreserveModules,
+    preserveModulesRoot: 'src',
     strict: true,
     entryFileNames: '[name].mjs',
-    banner: isCli ? '#!/usr/bin/env node' : undefined,
     sourcemap: useSourceMaps,
   },
+  treeshake: 'smallest',
   plugins: [
     externals(),
     json({
       preferConst: preferConst,
     }),
     replace({
-      'process.env.PKG_NAME': `"${Object.keys(pkg.bin)[0]}"`,
+      'process.env.PKG_NAME': `"${Object.keys(pkg.bin)[0] ?? pkg.name}"`,
       'process.env.PKG_VERSION': `"${pkg.version}"`,
       'process.env.PKG_DESCRIPTION': `"${pkg.description}"`,
+      'process.env.BUILD_NODE_ENV': `"${process.env.NODE_ENV}"`,
       preventAssignment: true,
+      sourceMap: useSourceMaps,
     }),
-    useEsbuild
+    typescriptPaths({
+      preserveExtensions: true,
+    }),
+    esbuild({
+      legalComments: 'none',
+      target: 'esnext',
+    }),
+    isWatched
       ? [
-          typescriptPaths({
-            preserveExtensions: true,
+          watcher({
+            files: additionalWatchFiles,
           }),
-          esbuild({
-            legalComments: 'none',
-            target: 'esnext',
-          }),
+          run(),
         ]
-      : typescript({
-          noEmitOnError: useThrowOnError,
-          removeComments: true,
-        }),
-    isWatched ? run() : undefined,
+      : undefined,
   ],
 });

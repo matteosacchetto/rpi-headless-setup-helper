@@ -49,7 +49,7 @@ wifi_command.action(async (options) => {
 
   await exit_fail_on_error(async () => {
     await config_overwrite({
-      name: `WiFi`,
+      name: 'WiFi',
       fn: async (overwrite: boolean) =>
         await wifi_config({
           country_code: options.country,

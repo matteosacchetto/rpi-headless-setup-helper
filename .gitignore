@@ -130,14 +130,13 @@ dist
 .pnp.*
 
 # Rollup build dir
-dist
-
-# Tap dir
-.nyc_output/
-.tap/
+dist/
 
 # c8 dir
 coverage/
 
-# Docs dir
-docs
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
