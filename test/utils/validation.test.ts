@@ -1,88 +1,104 @@
+import assert from 'node:assert';
+import { join, relative } from 'node:path';
+import { describe, test } from 'node:test';
+import { fileURLToPath } from 'node:url';
 import { async_error_to_msg, error_to_msg } from '@/utils/validation';
-import t from 'tap';
 
-t.test('error to msg (true)', async (t) => {
-  t.ok(error_to_msg(() => true));
-});
+const filename = relative(
+  join(process.cwd(), 'test'),
+  fileURLToPath(import.meta.url)
+).replace('.test', '');
 
-t.test('error to msg (false)', async (t) => {
-  t.notOk(error_to_msg(() => false));
-});
+describe(filename, async () => {
+  describe('error_to_msg', async () => {
+    test('error to msg (true)', async () => {
+      assert.ok(error_to_msg(() => true));
+    });
 
-t.test('error to msg (true)', async (t) => {
-  t.ok(error_to_msg((flag: boolean) => flag, true));
-});
+    test('error to msg (false)', async () => {
+      assert.ok(!error_to_msg(() => false));
+    });
 
-t.test('error to msg (false)', async (t) => {
-  t.notOk(error_to_msg((flag: boolean) => flag, false));
-});
+    test('error to msg (true)', async () => {
+      assert.ok(error_to_msg((flag: boolean) => flag, true));
+    });
 
-t.test('error to msg (false)', async (t) => {
-  const resposne = error_to_msg(() => {
-    throw new Error('a');
+    test('error to msg (false)', async () => {
+      assert.ok(!error_to_msg((flag: boolean) => flag, false));
+    });
+
+    test('error to msg (false)', async () => {
+      const resposne = error_to_msg(() => {
+        throw new Error('a');
+      });
+
+      assert.strictEqual(typeof resposne, 'string');
+      assert.strictEqual(resposne, 'a');
+    });
+
+    test('error to msg (false)', async () => {
+      const resposne = error_to_msg(() => {
+        throw 'a';
+      });
+
+      assert.strictEqual(typeof resposne, 'string');
+      assert.strictEqual(resposne, 'a');
+    });
+
+    test('error to msg (false)', async () => {
+      const resposne = error_to_msg(() => {
+        throw 1;
+      });
+
+      assert.strictEqual(typeof resposne, 'string');
+      assert.strictEqual(resposne, 'unknown error');
+    });
   });
 
-  t.type(resposne, 'string');
-  t.same(resposne, 'a');
-});
+  describe('async_error_to_msg', async () => {
+    test('async error to msg (true)', async () => {
+      assert.ok(await async_error_to_msg(async () => true));
+    });
 
-t.test('error to msg (false)', async (t) => {
-  const resposne = error_to_msg(() => {
-    throw 'a';
+    test('async error to msg (false)', async () => {
+      assert.ok(!(await async_error_to_msg(async () => false)));
+    });
+
+    test('async error to msg (true)', async () => {
+      assert.ok(await async_error_to_msg(async (flag: boolean) => flag, true));
+    });
+
+    test('async error to msg (false)', async () => {
+      assert.ok(
+        !(await async_error_to_msg(async (flag: boolean) => flag, false))
+      );
+    });
+
+    test('async error to msg (false)', async () => {
+      const resposne = await async_error_to_msg(async () => {
+        throw new Error('a');
+      });
+
+      assert.strictEqual(typeof resposne, 'string');
+      assert.strictEqual(resposne, 'a');
+    });
+
+    test('async error to msg (false)', async () => {
+      const resposne = await async_error_to_msg(async () => {
+        throw 'a';
+      });
+
+      assert.strictEqual(typeof resposne, 'string');
+      assert.strictEqual(resposne, 'a');
+    });
+
+    test('async error to msg (false)', async () => {
+      const resposne = await async_error_to_msg(async () => {
+        throw 1;
+      });
+
+      assert.strictEqual(typeof resposne, 'string');
+      assert.strictEqual(resposne, 'unknown error');
+    });
   });
-
-  t.type(resposne, 'string');
-  t.same(resposne, 'a');
-});
-
-t.test('error to msg (false)', async (t) => {
-  const resposne = error_to_msg(() => {
-    throw 1;
-  });
-
-  t.type(resposne, 'string');
-  t.same(resposne, 'unknown error');
-});
-
-t.test('async error to msg (true)', async (t) => {
-  t.ok(await async_error_to_msg(async () => true));
-});
-
-t.test('async error to msg (false)', async (t) => {
-  t.notOk(await async_error_to_msg(async () => false));
-});
-
-t.test('async error to msg (true)', async (t) => {
-  t.ok(await async_error_to_msg(async (flag: boolean) => flag, true));
-});
-
-t.test('async error to msg (false)', async (t) => {
-  t.notOk(await async_error_to_msg(async (flag: boolean) => flag, false));
-});
-
-t.test('async error to msg (false)', async (t) => {
-  const resposne = await async_error_to_msg(async () => {
-    throw new Error('a');
-  });
-
-  t.type(resposne, 'string');
-  t.same(resposne, 'a');
-});
-
-t.test('async error to msg (false)', async (t) => {
-  const resposne = await async_error_to_msg(async () => {
-    throw 'a';
-  });
-
-  t.type(resposne, 'string');
-  t.same(resposne, 'a');
-});
-
-t.test('async error to msg (false)', async (t) => {
-  const resposne = await async_error_to_msg(async () => {
-    throw 1;
-  });
-
-  t.type(resposne, 'string');
-  t.same(resposne, 'unknown error');
 });

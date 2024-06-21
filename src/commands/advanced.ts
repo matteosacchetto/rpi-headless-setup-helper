@@ -3,7 +3,7 @@ import { config_overwrite } from '@/config/config-overwrite';
 import { createCommand } from '@/utils/commands';
 import { exit_fail_on_error } from '@/utils/process';
 import { validate_hostname } from '@/validation/hostname';
-import { validate_kbd_layout } from '@/validation/kbd_layout';
+import { validate_kbd_layout } from '@/validation/kbd-layout';
 import { validate_key_path } from '@/validation/ssh';
 import { validate_timezone } from '@/validation/timezone';
 import { validation_spinner } from '@/validation/validation-spinner';
@@ -72,7 +72,7 @@ advanced_command.action(async (options) => {
 
   await exit_fail_on_error(async () => {
     await config_overwrite({
-      name: `advanced`,
+      name: 'advanced',
       fn: async (overwrite: boolean) =>
         await advanced_config({
           overwrite,

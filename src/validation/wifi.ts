@@ -7,7 +7,7 @@ export const validate_country_code = (country_code: string) => {
   if (!is_country_code_valid(country_code)) {
     throw new ValidationError(
       `Insert a valid 2 letter ISO 3166-1 country code ${chalk.gray.dim(
-        `(https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)`
+        '(https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)'
       )}`
     );
   }

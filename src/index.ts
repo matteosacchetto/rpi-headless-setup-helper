@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { advanced_config } from './config/advanced';
 import { config_overwrite } from './config/config-overwrite';
 import { ssh_config } from './config/ssh';
@@ -76,7 +78,7 @@ program.action(async () => {
   if (ssh.enable) {
     await exit_fail_on_error(async () => {
       await config_overwrite({
-        name: `SSH`,
+        name: 'SSH',
         fn: async (overwrite: boolean) => await ssh_config({ overwrite }),
         overwrite: false,
         retry: true,
@@ -87,7 +89,7 @@ program.action(async () => {
   if (user.enable) {
     await exit_fail_on_error(async () => {
       await config_overwrite({
-        name: `user`,
+        name: 'user',
         fn: async (overwrite: boolean) =>
           await user_config({
             username: user.username,
@@ -103,7 +105,7 @@ program.action(async () => {
   if (wifi.enable) {
     await exit_fail_on_error(async () => {
       await config_overwrite({
-        name: `WiFi`,
+        name: 'WiFi',
         fn: async (overwrite: boolean) =>
           await wifi_config({
             country_code: wifi.country_code,
@@ -120,7 +122,7 @@ program.action(async () => {
   if (advanced.enable) {
     await exit_fail_on_error(async () => {
       await config_overwrite({
-        name: `Advanced`,
+        name: 'Advanced',
         fn: async (overwrite: boolean) =>
           await advanced_config({
             overwrite,

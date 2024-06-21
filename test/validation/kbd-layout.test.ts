@@ -2,7 +2,7 @@ import assert from 'node:assert';
 import { join, relative } from 'node:path';
 import { describe, test } from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { validate_timezone } from '@/validation/timezone';
+import { validate_kbd_layout } from '@/validation/kbd-layout';
 
 const filename = relative(
   join(process.cwd(), 'test'),
@@ -10,13 +10,13 @@ const filename = relative(
 ).replace('.test', '');
 
 describe(filename, async () => {
-  describe('validate_timezone', async () => {
-    test('valid timezone', async (t) => {
-      assert.ok(validate_timezone('America/New_York'));
+  describe('validate_kbd_layout', async () => {
+    test('valid keyboard layout', async () => {
+      assert.ok(validate_kbd_layout('us'));
     });
 
-    test('invalid timezone', async (t) => {
-      assert.throws(() => validate_timezone('America/NewYork'));
+    test('invalid keyboard layout', async () => {
+      assert.throws(() => validate_kbd_layout('en'));
     });
   });
 });

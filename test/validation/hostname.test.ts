@@ -1,10 +1,22 @@
+import assert from 'node:assert';
+import { join, relative } from 'node:path';
+import { describe, test } from 'node:test';
+import { fileURLToPath } from 'node:url';
 import { validate_hostname } from '@/validation/hostname';
-import t from 'tap';
 
-t.test('valid hostname', async (t) => {
-  t.ok(validate_hostname('raspberrypi'));
-});
+const filename = relative(
+  join(process.cwd(), 'test'),
+  fileURLToPath(import.meta.url)
+).replace('.test', '');
 
-t.test('invalid hostname', async (t) => {
-  t.throws(() => validate_hostname('raspberry_pi'));
+describe(filename, async () => {
+  describe('validate_hostname', async () => {
+    test('valid hostname', async () => {
+      assert.ok(validate_hostname('raspberrypi'));
+    });
+
+    test('invalid hostname', async () => {
+      assert.throws(() => validate_hostname('raspberry_pi'));
+    });
+  });
 });

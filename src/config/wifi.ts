@@ -39,6 +39,7 @@ export const wifi_config = async ({
   const psk_passphrase = await passphrase({ ssid, psk });
 
   const content =
+    // biome-ignore lint/style/useTemplate: much more readable this way
     'ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\n' +
     `country=${country_code}\n` +
     'update_config=1\n' +
