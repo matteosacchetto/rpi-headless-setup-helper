@@ -30,7 +30,7 @@ program.addCommand(ssh_command);
 program.addCommand(user_command);
 program.addCommand(wifi_command);
 program.addCommand(advanced_command);
-program.addHelpCommand();
+program.helpCommand(true);
 
 program.action(async () => {
   await exit_fail_on_error(async () => {
