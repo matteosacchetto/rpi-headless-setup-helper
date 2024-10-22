@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.2](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.5.1...v0.5.2) (2024-10-21)
+
+
+### Bug Fixes
+
+* test runner now exits with exit code 1 if a test fails ([d3fe615](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/d3fe61505df9ed812e5229f5020d9b8fc05e90fa))
+* use helpCommand instead of addHelpCommand since deprecated ([de4f3c2](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/de4f3c20a11644a0f0ef7b391a663e2f1eaf9dca))
+
 ## [0.5.1](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.5.0...v0.5.1) (2024-06-21)
 
 
