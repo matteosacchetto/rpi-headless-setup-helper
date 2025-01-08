@@ -43,12 +43,12 @@
     "npm": ">=9.6.5"
   },
   "dependencies": {
-    "@commander-js/extra-typings": "^12.1.0",
+    "@commander-js/extra-typings": "^13.0.0",
     "@inquirer/confirm": "^5.1.1",
     "@inquirer/input": "^4.1.1",
     "@inquirer/password": "^4.0.4",
     "chalk": "^5.4.1",
-    "commander": "^12.1.0",
+    "commander": "^13.0.0",
     "log-symbols": "^7.0.0",
     "ora": "^8.1.1",
     "strip-ansi": "^7.1.0",
