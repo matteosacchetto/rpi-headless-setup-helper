@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.3](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.5.2...v0.5.3) (2025-03-28)
+
+
+### Bug Fixes
+
+* revert to log-symbols 6.0.0 ([99926d2](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/99926d26f6fb6661cab906a08ed5ad00f5f7b560))
+
 ## [0.5.2](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.5.1...v0.5.2) (2024-10-21)
 
 
