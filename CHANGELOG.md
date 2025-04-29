@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.6.0](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.5.2...v0.6.0) (2025-04-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump node to 20
+
+### Bug Fixes
+
+* bump node to 20 ([95de99f](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/95de99ff9f4156d6fb59b84b14967a6dd74a769e))
+* revert to log-symbols 6.0.0 ([99926d2](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/99926d26f6fb6661cab906a08ed5ad00f5f7b560))
+
+
+### Miscellaneous Chores
+
+* update version in README ([911a54d](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/911a54d84bf0166ac2353780abbd071b1f9f1f78))
+
 ## [0.5.2](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.5.1...v0.5.2) (2024-10-21)
 
 
