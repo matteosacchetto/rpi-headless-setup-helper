@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.0](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.6.0...v1.0.0) (2025-07-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **dev:** use get-tsconfig instead of rollup-plugin-typescript-paths to resolve paths
+* **deps:** update 5 dependencies
+* **dev-deps:** update 5 dev dependencies
+
+### Build System
+
+* **deps:** update 5 dependencies ([ee3fb62](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/ee3fb62214b42fa37d0ff61cd74b7f4749ae0007))
+* **dev-deps:** update 5 dev dependencies ([b9239a8](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/b9239a803e7f40c09ba8ab6ec362dba7584b7f43))
+* **dev:** use get-tsconfig instead of rollup-plugin-typescript-paths to resolve paths ([ea173f9](https://github.com/matteosacchetto/rpi-headless-setup-helper/commit/ea173f95f75e18e3e5666368a2e30e21bd3354ec))
+
 ## [0.6.0](https://github.com/matteosacchetto/rpi-headless-setup-helper/compare/v0.5.2...v0.6.0) (2025-04-29)
 
 
