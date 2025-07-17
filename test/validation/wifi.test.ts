@@ -17,41 +17,41 @@ const filename = relative(
 
 describe(filename, async () => {
   describe('validate_country_code', async () => {
-    test('valid country code', async (t) => {
+    test('valid country code', async () => {
       assert.ok(validate_country_code('US'));
     });
 
-    test('all iso3166 country code', async (t) => {
+    test('all iso3166 country code', async () => {
       for (const code of iso_3166_codes) {
         assert.ok(validate_country_code(code));
       }
     });
 
-    test('invalid country code', async (t) => {
+    test('invalid country code', async () => {
       assert.throws(() => validate_country_code('EN'), ValidationError);
     });
   });
 
   describe('validate_ssid', async () => {
-    test('valid SSID', async (t) => {
+    test('valid SSID', async () => {
       assert.ok(validate_ssid('SSID'));
     });
 
-    test('invalid SSID', async (t) => {
+    test('invalid SSID', async () => {
       assert.throws(() => validate_ssid(''), ValidationError);
     });
   });
 
   describe('validate_psk', async () => {
-    test('valid PSK', async (t) => {
+    test('valid PSK', async () => {
       assert.ok(validate_psk('12345678'));
     });
 
-    test('invalid PSK', async (t) => {
+    test('invalid PSK', async () => {
       assert.throws(() => validate_psk('12345'), ValidationError);
     });
 
-    test('invalid PSK', async (t) => {
+    test('invalid PSK', async () => {
       assert.throws(
         () =>
           validate_psk(

@@ -11,11 +11,11 @@ const filename = relative(
 
 describe(filename, async () => {
   describe('validate_timezone', async () => {
-    test('valid timezone', async (t) => {
+    test('valid timezone', async () => {
       assert.ok(validate_timezone('America/New_York'));
     });
 
-    test('invalid timezone', async (t) => {
+    test('invalid timezone', async () => {
       assert.throws(() => validate_timezone('America/NewYork'));
     });
   });

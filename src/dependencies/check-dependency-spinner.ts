@@ -1,5 +1,5 @@
-import { spinner_wrapper } from '@/utils/spinner-wrapper';
 import chalk from 'chalk';
+import { spinner_wrapper } from '@/utils/spinner-wrapper';
 
 export const check_dependency_spinner = async (dependency: {
   name: string;

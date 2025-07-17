@@ -1,4 +1,4 @@
-import { constants, access } from 'node:fs/promises';
+import { access, constants } from 'node:fs/promises';
 import { homedir } from 'node:os';
 import { FileExistsError } from '@/errors/file-exists-error';
 import { FileNotExistsError } from '@/errors/file-not-exists-error';
@@ -7,7 +7,7 @@ export const exists = async (path: string) => {
   try {
     await access(path, constants.F_OK);
     return true;
-  } catch (e) {
+  } catch {
     return false;
   }
 };

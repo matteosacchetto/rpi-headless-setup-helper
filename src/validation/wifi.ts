@@ -1,7 +1,7 @@
+import chalk from 'chalk';
 import { ssid_regex } from '@/const/regex';
 import { ValidationError } from '@/errors/validation-error';
 import { is_country_code_valid } from '@/utils/country-codes';
-import chalk from 'chalk';
 
 export const validate_country_code = (country_code: string) => {
   if (!is_country_code_valid(country_code)) {

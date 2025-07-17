@@ -22,7 +22,7 @@ class Logger {
     this.#console = new Console({ stdout: this.#stdout, stderr: this.#stderr });
   }
 
-  #log(std: STD_FD, raw: boolean, ...msg: unknown[]) {
+  #log(std: STD_FD, _raw: boolean, ...msg: unknown[]) {
     let logger: (...data: unknown[]) => void;
     let stream: NodeJS.WritableStream & { isTTY?: boolean };
     switch (std) {

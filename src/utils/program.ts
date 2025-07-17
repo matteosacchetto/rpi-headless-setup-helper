@@ -10,7 +10,7 @@ export const exists = async (cmd: string) => {
   try {
     await which(cmd); // Throws if it does not exist
     return true;
-  } catch (err) {
+  } catch {
     throw new Error(`Program '${cmd}' does not exist`);
   }
 };

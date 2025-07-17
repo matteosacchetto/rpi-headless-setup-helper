@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+import advanced_command from './commands/advanced';
+import ssh_command from './commands/ssh';
+import user_command from './commands/user';
+import wifi_command from './commands/wifi';
+import { description, name } from './config';
 import { advanced_config } from './config/advanced';
 import { config_overwrite } from './config/config-overwrite';
 import { ssh_config } from './config/ssh';
@@ -13,16 +18,9 @@ import { confirm_creation_prompt } from './prompts/confirm-creation';
 import { ssh_prompt } from './prompts/ssh';
 import { user_prompt } from './prompts/user';
 import { wifi_prompt } from './prompts/wifi';
+import { createCommand } from './utils/commands';
 import { exit_fail_on_error, exit_success } from './utils/process';
 import { deep_redact } from './utils/redact';
-
-import { description, name } from './config';
-import { createCommand } from './utils/commands';
-
-import advanced_command from './commands/advanced';
-import ssh_command from './commands/ssh';
-import user_command from './commands/user';
-import wifi_command from './commands/wifi';
 
 const program = createCommand(name, description);
 

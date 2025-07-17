@@ -1,3 +1,6 @@
+import confirm from '@inquirer/confirm';
+import input from '@inquirer/input';
+import password from '@inquirer/password';
 import { logger } from '@/logger';
 import { is_country_code_valid } from '@/utils/country-codes';
 import { get_country_from_locale, get_locale_country } from '@/utils/locale';
@@ -8,9 +11,6 @@ import {
   validate_psk,
   validate_ssid,
 } from '@/validation/wifi';
-import confirm from '@inquirer/confirm';
-import input from '@inquirer/input';
-import password from '@inquirer/password';
 import type { WiFi } from './types';
 
 export const wifi_prompt = async (mask?: string | undefined) => {

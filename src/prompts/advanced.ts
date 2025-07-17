@@ -1,3 +1,6 @@
+import confirm from '@inquirer/confirm';
+import input from '@inquirer/input';
+import chalk from 'chalk';
 import type { ISO_3166_Codes } from '@/utils/country-codes';
 import { untildify } from '@/utils/fs';
 import { kbd_layout_by_locale } from '@/utils/keyboard-layouts';
@@ -9,9 +12,6 @@ import { validate_hostname } from '@/validation/hostname';
 import { validate_kbd_layout } from '@/validation/kbd-layout';
 import { validate_key_path } from '@/validation/ssh';
 import { validate_timezone } from '@/validation/timezone';
-import confirm from '@inquirer/confirm';
-import input from '@inquirer/input';
-import chalk from 'chalk';
 import type { Advanced } from './types';
 
 // Prop

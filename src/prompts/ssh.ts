@@ -1,5 +1,5 @@
-import { exit_success_on_error_ignore } from '@/utils/process';
 import confirm from '@inquirer/confirm';
+import { exit_success_on_error_ignore } from '@/utils/process';
 import type { SSH } from './types';
 
 export const ssh_prompt = async () => {

@@ -1,5 +1,5 @@
-import { spinner_wrapper } from '@/utils/spinner-wrapper';
 import chalk from 'chalk';
+import { spinner_wrapper } from '@/utils/spinner-wrapper';
 
 export const config_spinner = async ({
   name,

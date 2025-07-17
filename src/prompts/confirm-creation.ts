@@ -1,7 +1,7 @@
-import { logger } from '@/logger';
-import { exit_success_on_error_ignore } from '@/utils/process';
 import confirm from '@inquirer/confirm';
 import chalk from 'chalk';
+import { logger } from '@/logger';
+import { exit_success_on_error_ignore } from '@/utils/process';
 
 export const confirm_creation_prompt = async (
   redacted_configuration: Record<string, unknown>

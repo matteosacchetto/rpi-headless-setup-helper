@@ -11,7 +11,7 @@ const filename = relative(
 
 describe(filename, async () => {
   describe('deep_redact', async () => {
-    test('deep redact object (no recursion)', async (t) => {
+    test('deep redact object (no recursion)', async () => {
       assert.deepStrictEqual(
         deep_redact(
           {
@@ -27,7 +27,7 @@ describe(filename, async () => {
       );
     });
 
-    test('deep redact object (recursion)', async (t) => {
+    test('deep redact object (recursion)', async () => {
       assert.deepStrictEqual(
         deep_redact(
           {
@@ -51,7 +51,7 @@ describe(filename, async () => {
       );
     });
 
-    test('deep redact object (different mask)', async (t) => {
+    test('deep redact object (different mask)', async () => {
       assert.deepStrictEqual(
         deep_redact(
           {

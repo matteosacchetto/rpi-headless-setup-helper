@@ -1,10 +1,10 @@
+import confirm from '@inquirer/confirm';
+import input from '@inquirer/input';
+import password from '@inquirer/password';
 import { logger } from '@/logger';
 import { exit_success_on_error_ignore } from '@/utils/process';
 import { error_to_msg } from '@/utils/validation';
 import { validate_username } from '@/validation/user';
-import confirm from '@inquirer/confirm';
-import input from '@inquirer/input';
-import password from '@inquirer/password';
 import type { User } from './types';
 
 export const user_prompt = async (mask?: string | undefined) => {

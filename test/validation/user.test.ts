@@ -13,19 +13,19 @@ const filename = relative(
 describe(filename, async () => {
   describe('validate_username', async () => {
     assert.strictEqual(1, 1);
-    test('valid username', async (t) => {
+    test('valid username', async () => {
       assert.ok(validate_username('test'));
     });
 
-    test('valid username', async (t) => {
+    test('valid username', async () => {
       assert.ok(validate_username('_test'));
     });
 
-    test('invalid username', async (t) => {
+    test('invalid username', async () => {
       assert.throws(() => validate_username('TEST'), ValidationError);
     });
 
-    test('invalid username 2', async (t) => {
+    test('invalid username 2', async () => {
       assert.throws(() => validate_username('*test'), ValidationError);
     });
   });
